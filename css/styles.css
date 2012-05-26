@@ -2,8 +2,91 @@
 * {
 	margin: 0;
 	padding: 0;
-	border-collapse: 0;
+	border-collapse: collapse;
 }
 body {
-	background: #f0f0f0;
+	background: url('../images/bg.png');
+	font-size: 13px;
+	font-family: 'Open Sans', sans-serif;
+}
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Oleo Script', cursive;
+}
+/* Rounded Borders */
+.roundedBorders {
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+}
+.roundedBordersTop {
+	/* Rounded Borders */
+	-moz-border-radius: 8px 8px 0 0;
+	-webkit-border-radius: 8px 8px 0 0;
+}
+.roundedBordersBottom {
+	/* Rounded Borders */
+	-moz-border-radius: 0 0 8px 8px;
+	-webkit-border-radius: 0 0 8px 8px;
+}
+#menu {
+	height: 50px;
+	width: 100%;
+	position: fixed;
+	top: 0;
+	z-index: 999;
+}
+#menuWrapper {
+	width: 940px;
+	height: 50px;
+	margin: 0 auto;
+	background: rgba(0, 0, 0, 0.6);
+	border-left: 1px solid #000000;
+	border-bottom: 1px solid #000000;
+	border-right: 1px solid #000000;
+}
+#logo {
+	float: left;
+	width: 300px;
+	height: 50px;
+	line-height: 50px;
+	margin-left: 20px;
+	color: #ffffff;
+	font-size: 2em;
+	font-weight: bold;
+	font-family: 'Oleo Script', cursive;
+}
+#controls {
+	float: right;
+	width: 600px;
+	text-align: right;
+	height: 50px;
+	line-height: 50px;
+}
+#controls ul {
+	list-style: none;
+}
+#controls ul li {
+	display: inline-block;
+	height: 50px;
+	margin-right: 20px;
+	padding: 0;
+	border-collapse: collapse;
+}
+#controls ul li a {
+	display: block;
+	height: 100%;
+	width: 100%;
+	color: #ffffff;
+	font-weight: bold;
+	font-size: 1.2em;
+	text-decoration: none;
+}
+#controls ul li a:hover {
+	color: #ff0000;
+}
+#content {
+	width: 900px;
+	margin: 70px auto 0 auto;
+	padding: 20px;
+	background: #ffffff;
+	border: 1px solid #aaaaaa;
 }
