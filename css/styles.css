@@ -45,14 +45,25 @@ h1, h2, h3, h4, h5, h6 {
 }
 #logo {
 	float: left;
-	width: 300px;
 	height: 50px;
 	line-height: 50px;
-	margin-left: 20px;
 	color: #ffffff;
 	font-size: 2em;
 	font-weight: bold;
 	font-family: 'Oleo Script', cursive;
+}
+#logo a {
+	display: block;
+	padding: 0 15px;
+	color: #ffffff;
+	font-weight: bold;
+	text-decoration: none;
+	-moz-border-radius: 0 0 0 8px;
+	-webkit-border-radius: 0 0 0 8px;
+}
+#logo a:hover {
+	background: #ffffff;
+	color: #000000;
 }
 #controls {
 	float: right;
@@ -89,4 +100,34 @@ h1, h2, h3, h4, h5, h6 {
 	padding: 20px;
 	background: #ffffff;
 	border: 1px solid #aaaaaa;
+}
+#searchWrapper {
+	width: 300px;
+	margin: 0 auto;
+	text-align: center;
+}
+#search {
+	width: 300px;
+	border: 1px solid #aaaaaa;
+	text-align: left;
+	background: #ffffff;
+}
+#search #searchInput {
+	width: 250px;
+	height: 20px;
+	padding: 5px;
+	border: none;
+	line-height: 20px;
+	background: none;
+}
+#search button {
+	width: 27px;
+	height: 30px;
+	background: url('../images/search_button.png') no-repeat;
+	border: none;
+	cursor: pointer;
+	float: right;
+}
+.example {
+	color: #aaaaaa;
 }

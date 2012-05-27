@@ -6,6 +6,7 @@
 	<link href="css/styles.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="js/something.js"></script>
+	<script type="text/javascript" src="js/search.js"></script>
 	
 	<title>Cooz Cooz</title>
 </head>
@@ -13,7 +14,7 @@
 	<div id="menu">
 		<div id="menuWrapper" class="roundedBordersBottom">
 			<div id="logo">
-				Cooz Cooz
+				<a href="index.php">Cooz Cooz</a>
 			</div>
 			<div id="controls">
 				<ul>
@@ -24,8 +25,15 @@
 		</div>
 	</div>
 	<div id="content" class="roundedBorders">
-		<h1>Quero cozinhar</h1>
-		<a href="#" class="something">Something</a>
+		<div id="searchWrapper">
+			<h1>Quero cozinhar ...</h1>
+			<br />
+			<div id="search" class="roundedBorders" >
+				<input type="text" id="searchInput" />
+				<button type="submit"></button>
+			</div>
+			<span class="example">Ex: "Lasanha de frango" ou "arroz, batata, tomate"</span>
+		</div>
 	</div>
 </body>
 </html>
