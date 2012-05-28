@@ -88,6 +88,7 @@
 	padding: 20px;
 	background: #ffffff;
 	border: 1px solid #aaaaaa;
+    min-height: 550px;
 }
 #searchWrapper {
 	width: 300px;
@@ -115,6 +116,28 @@
 	border: none;
 	cursor: pointer;
 	float: right;
+}
+#overviewRecipe{
+    float: right;
+    width: 40%;
+}
+
+#overviewRecipe {
+    float: right;
+    width: 40%;
+}
+
+#recipeDetail {
+    clear: both;
+    padding-top: 40px;
+}
+
+ul li {
+    list-style: none;
+}
+
+#recipeDetail ul {
+    padding-bottom: 20px;
 }
 .example {
 	color: #aaaaaa;
@@ -158,24 +181,24 @@
 	font-family: 'Oleo Script', cursive;
 	font-size: 1.5em;
 }
-.result .time {
+.time {
 	background: url('../images/clock.png') left top no-repeat;
 	padding-left: 18px;
 	font-weight: bold;
 	margin-top: 5px;
 }
-.result .grade {
+.grade {
 	width: 100px;
 	height: 16px;
 	margin-top: 5px;
 }
-.result .grade .starFull {
+.grade .starFull {
 	width: 16px;
 	height: 16px;
 	background: url('../images/star_full.png');
 	display: inline-block;
 }
-.result .grade .starEmpty {
+.grade .starEmpty {
 	width: 16px;
 	height: 16px;
 	background: url('../images/star_empty.png');
