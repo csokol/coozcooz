@@ -1,4 +1,3 @@
-
 body, #content, #photo {
     width: 280px;
 }
@@ -18,7 +17,9 @@ h2 { margin: 5px 0 }
 
 p { text-align: justify }
 
+#ingredients {
+	padding: 0 8px;
+}
 .quantity {
-	width: 80px;
-	background-color: #DDD;
+	margin-right: 5px;
 }

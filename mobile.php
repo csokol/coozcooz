@@ -12,28 +12,53 @@
 	
 	<title><?php echo "Strogonoff de Frango" ?></title>
 </head>
+
+
+<?php
+	include("db.php");
+	if (isset($_GET['id'])) {
+		$id = $_GET['id'];
+	} else {
+		echo "<h1>Parâmetros inválidos!</h1>";
+		die();
+	}
+
+	$db = new DB();
+	if ($db->getRecipe($id) == null) {
+		echo "<h1>A receita solicitada não existe!</h1>";
+		die();
+	}
+
+	$recipe = $db->getRecipe($id);
+?>
+
+
 <body>
 	<h1 id="logo">Cooz Cooz</h1>
 	<div id="content" class="roundedBorders">
-		<h2 id="recipeName">Strogonoff de Frango</h2>
-		<img id="photo" alt="foto" src="images/recipes/2.jpg"/>
+		<h2 id="recipeName">
+			<?php echo $recipe['title'] ?>
+		</h2>
+		<img id="photo" alt="foto" src="images/recipes/<?php echo $recipe['photos'][0] ?>"/>
 		<h2>Ingredientes</h2>
-		<table id="ingredientsTable">
-			<tr>
-				<td class="quantity">1 Kg</td>
-				<td class="ingredient">Frango</td>
-			</tr>
-		</table>
+		<ul id="ingredients">
+			<?php
+			foreach ($recipe['ingredients'] as $ing_id) {
+				$ingredient = $db->getIngredientName($ing_id);
+				$quantity = "1Kg"; // $recipe['quantities'][$i]
+				$html = "
+					<li>
+						<span class='quantity'>{$quantity}</span>
+						<span class='ingredient'>{$ingredient}</span>
+					</li>
+				";
+				echo $html;
+			}
+			?>
+		</ul>
 		<h2>Modo de preparo</h2>
 		<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet dapibus ipsum.
-		Duis sit amet congue augue. Nulla sodales metus et metus viverra vitae fermentum risus
-		sollicitudin. Aliquam a turpis felis, id aliquet lorem. Maecenas euismod, diam ut fermentum
-		vehicula, purus tortor sodales quam, nec scelerisque purus augue non purus. Aenean mattis
-		vestibulum ipsum ut bibendum. Curabitur a lorem orci, in fermentum enim. Aenean justo purus,
-		congue sed faucibus ac, pretium eu ligula. Duis sagittis semper augue, sit amet faucibus
-		justo condimentum eget. Vestibulum laoreet magna aliquam libero dictum a ultricies lectus
-		molestie. Integer lectus lectus, tincidunt non commodo at, mollis quis lectus.
+			<?php echo $recipe['directions'] ?>
 		</p>
 	</div>
 </body>
