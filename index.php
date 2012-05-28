@@ -13,8 +13,11 @@
 </head>
 <body>
 	<?php include("header.php"); ?>
+	<?php include("db.php"); ?>
 	<div id="content" class="roundedBorders">
 		<?php
+			$db = new DB();
+			
 			if (isset($_GET['c'])) {
 				$c = $_GET['c'];
 			}
@@ -30,15 +33,73 @@
 					else {
 						$q = null;
 					}
+					$q = str_replace(",", "", $q);
+					$q = str_replace(";", "", $q);
+					$q = str_replace(".", "", $q);
+					$q = explode(" ", $q);
+					$ingredients = array();
+					foreach($q as $word) {
+						foreach($db->ingredients as $ingredient) {
+							if (strtolower($word) == strtolower($ingredient)) {
+								$ingredients[] = $ingredient;
+							}
+						}
+					}
+					
 					?>
 						<div id="results">
-							<div class="ingredient">Frango</div>
-							<div class="ingredient">Tomate</div>
-							<div class="ingredient">Água</div>
+							<?php
+							$filtered = $db->getFilteredRecipes($ingredients, null);
+    
+							foreach($filtered as $recipe) {
+								?>
+									<div class="result">
+										<div class="resultImage">
+											<a href="recipe.php?id=<?php echo $recipe['id']; ?>">
+												<img src="<?php echo $recipe['thumbUrl']; ?>" />
+											</a>
+										</div>
+										<div class="info">
+											<a href="recipe.php?id=<?php echo $recipe['id']; ?>" class="resultName"><?php echo $recipe['title']; ?></a>
+											<br />
+											<?php
+												foreach($recipe['ingredients'] as $ingredientId) {
+													?>
+														<div class="ingredient"><?php echo $db->getIngredientName($ingredientId); ?></div>
+													<?php
+												}
+											?>
+											<br />
+											<div class="time"><?php echo $recipe['time']; ?> min</div>
+											<div class="grade">
+												<?php
+													for($i = 0; $i < $recipe['rate']; $i++) {
+														?>
+															<div class="starFull"></div>
+														<?php
+													}
+													for($i = 5; $i > $recipe['rate']; $i--) {
+														?>
+															<div class="starEmpty"></div>
+														<?php
+													}	 
+												?>
+											</div>
+										</div>
+									</div>
+								<?php
+							}?>
 						</div>
 						<div id="rightBar">
 							<div id="ingredients">
 								<h2>Eu tenho:</h2>
+								<?php
+									foreach ($ingredients as $ingredient) {
+										?>
+											<div class="tag"><?php echo $ingredient; ?></div>
+										<?php
+									} 
+								?>
 							</div>
 							<div id="dislikes">
 								<h2>Não gosto de:</h2>
