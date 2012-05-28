@@ -29,6 +29,7 @@
 	border-left: 1px solid #000000;
 	border-bottom: 1px solid #000000;
 	border-right: 1px solid #000000;
+	position: relative;
 }
 #logo {
 	float: left;
@@ -51,6 +52,12 @@
 #logo a:hover {
 	background: #ffffff;
 	color: #000000;
+}
+#refineSearch {
+	position: absolute;
+	top: 10px;
+	left: 280px;
+	height: 50px;
 }
 #controls {
 	float: right;
