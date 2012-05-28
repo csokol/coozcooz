@@ -83,7 +83,7 @@
     ?>        
 
 
-        <div id="rightBar" style="float: right">
+        <div id="rightBar" class="detailRecipe">
 			<div id="ingredients">
 				<h2>Eu tenho:</h2>
 			</div>
