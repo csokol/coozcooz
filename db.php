@@ -29,7 +29,12 @@ class DB {
 	}
 
     public function getRecipe($i) {
-    	return $this->recipes[$i];
+    	if (isset($this->recipes[$i]))  {
+	    	return $this->recipes[$i];
+    	}
+    	else {
+    		return null;
+    	}
     }
     public function getFilteredRecipes($ingredients, $dislikes) {
     	$filtered = array();
