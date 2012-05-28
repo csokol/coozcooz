@@ -29,10 +29,13 @@
 					<a href="recipe.php?id=<?php echo $recipe['id']; ?>" class="resultName"><?php echo $recipe['title']; ?></a>
 					<br />
 					<?php
+						$i = 0;
 						foreach($recipe['ingredients'] as $ingredientId) {
 							?>
 								<div class="ingredient"><?php echo $db->getIngredientName($ingredientId); ?></div>
 							<?php
+							$i++;
+							if ($i == 4) break;
 						}
 					?>
 					<br />

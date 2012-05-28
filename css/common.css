@@ -17,3 +17,79 @@ a {
 	text-decoration: none;
 }
 
+/* Rounded Borders */
+.roundedBorders {
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+}
+.roundedBordersTop {
+	/* Rounded Borders */
+	-moz-border-radius: 8px 8px 0 0;
+	-webkit-border-radius: 8px 8px 0 0;
+}
+.roundedBordersBottom {
+	/* Rounded Borders */
+	-moz-border-radius: 0 0 8px 8px;
+	-webkit-border-radius: 0 0 8px 8px;
+}
+
+#ingredients {
+}
+#dislikes {
+	margin-top: 20px;
+}
+.tag, .ingredient {
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	padding: 2px 5px 2px 5px;
+	margin: 0 3px 3px 0;
+	background: #E5FCFF;
+	border: 1px solid #80F2FF;
+	color: #666;
+	font-weight: bold;
+	display: inline-block;
+	position: relative;
+	cursor: pointer;
+}
+.ingredient {
+	font-size: 0.9em;
+	padding: 3px;
+}
+.tag:hover, .ingredient:hover {
+	background: #1AE4FF;
+	color: #ffffff;
+}
+.tag .closeTag {
+	padding: 2px;
+	cursor: pointer;
+	display: inline-block;
+	margin-left: 5px;
+}
+.tag .closeTag:hover {
+	background: #005A66;
+}
+.dislike {
+	background: #FFE5E5;
+	border: 1px solid #FF8080;
+}
+.dislike:hover {
+	background: #FF1A1A;
+}
+.ingredientMenu {
+	background: #ffffff;
+	border: 1px solid #aaaaaa;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	display: none;
+	position: absolute;
+	margin-top: 10px;
+}
+.ingredientMenu .menuButton {
+	display: block;
+	padding: 3px;
+	cursor: pointer;
+	margin: 0;
+}
+.ingredientMenu .menuButton:hover {
+	background: #dddddd;
+}

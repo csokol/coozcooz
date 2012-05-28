@@ -31,7 +31,7 @@ class DB {
             "26" => "Pimenta",
             "27" => "Leite",
             "28" => "Amido de milho",
-            "29" => "Requeijão",
+            "29" => "Requeijão"
 		);
 		$this->ingredients = $ingredients;
 		
@@ -83,8 +83,8 @@ class DB {
 	                             "thumbUrl"=> "4.jpg",
 	                             "photos" => array("4.jpg")
 	                             );
-
-	    $this->recipes = array($oil_ala_salt, $chicken_ala_cheese, $bourbon_chicken, );
+	                             
+	    $this->recipes = array($oil_ala_salt, $chicken_ala_cheese, $bourbon_chicken, $bolo_bat_carne, $esc_frang_qj);
 	}
 
     public function getRecipe($i) {
