@@ -3,6 +3,8 @@ $(window).load(function() {
 		tag.append("<span class='closeTag'>X</span>");
 		tag.find('.closeTag').click(function() {
 			tag.remove();
+			var ingredientsArray = getListOfIngredients();
+			window.refreshResults(ingredientsArray);
 		});
 	}
 	function newTag(name) {
@@ -10,11 +12,19 @@ $(window).load(function() {
 		addCloseButton(tag);
 		return tag;
 	}
+	function getListOfIngredients() {
+		var array = [];
+		$("#ingredients").find('.tag').each(function() {
+			var tagName = $(this).find('.tagName').html();
+			array.push(tagName);
+		});
+		return array;
+	}
 	$(".tag").each(function() {
 		var tag = $(this);
 		addCloseButton(tag);
 	});
-	$(".ingredient").click(function() {
+	$(".ingredient").live('click', function() {
 		$(".ingredientMenu").each(function() {
 			$(this).remove();
 		})
@@ -32,6 +42,12 @@ $(window).load(function() {
 			var ingredientsDiv = $("#ingredients");
 			if (ingredientsDiv) {
 				var foundTag = false;
+				$("#dislikes").find(".tag").each(function() {
+					var tagName = $(this).find('.tagName').html();
+					if (tagName == ingredientName) {
+						$(this).remove();
+					}
+				});
 				ingredientsDiv.find(".tag").each(function() {
 					var tagName = $(this).find('.tagName').html();
 					if (tagName == ingredientName) {
@@ -43,10 +59,21 @@ $(window).load(function() {
 					ingredientsDiv.append(tag);
 				}
 			}
+			
+			var ingredientsArray = getListOfIngredients();
+			window.refreshResults(ingredientsArray);
+			menu.remove();
 		});
 		menu.find('.addDislike').click(function() {
 			var dislikeDiv = $("#dislikes");
 			var foundTag = false;
+			
+			$("#ingredients").find(".tag").each(function() {
+				var tagName = $(this).find('.tagName').html();
+				if (tagName == ingredientName) {
+					$(this).remove();
+				}
+			});
 			dislikeDiv.find(".tag").each(function() {
 				var tagName = $(this).find('.tagName').html();
 				if (tagName == ingredientName) {
@@ -58,6 +85,7 @@ $(window).load(function() {
 				tag.addClass("dislike");
 				dislikeDiv.append(tag);
 			}
+			menu.remove();
 		});
 		menu.slideDown("fast");
 	});

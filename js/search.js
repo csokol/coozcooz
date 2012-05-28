@@ -13,4 +13,11 @@ $(window).load(function() {
 		var value = input.attr('value');
 		window.redirect("index.php?c=search&q=" + value);
 	});
+	
+	window.refreshResults = function(ingredients) {
+		$.ajaxSetup({async:false});
+		$.post("getRecipe.php", {ingredients: ingredients}, function(data) { // Do an AJAX call
+			$("#results").html(data);
+		});
+	}
 });

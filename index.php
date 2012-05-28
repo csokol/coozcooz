@@ -68,33 +68,12 @@
 									</div>
 								</div>
 							</div>
-							<div class="result">
-								<div class="resultImage">
-									<img src="http://harmoniaphilosophica.files.wordpress.com/2012/04/plain-rice-p-leecher_1.jpg" />
-								</div>
-								<div class="info">
-									<span class="resultName">Arroz de forno</span>
-									<br />
-									<div class="ingredient">Arroz</div>
-									<div class="ingredient">Tomate</div>
-									<br />
-									<div class="time">30 min.</div>
-									<div class="grade">
-										<div class="starFull"></div>
-										<div class="starFull"></div>
-										<div class="starFull"></div>
-										<div class="starFull"></div>
-										<div class="starEmpty"></div>
-									</div>
-								</div>
-							</div>
 						</div>
 						<div id="rightBar">
 							<div id="ingredients">
 								<h2>Eu tenho:</h2>
 								<div class="tag"><span class="tagName">Frango</span></div>
 								<div class="tag"><span class="tagName">Tomate</span></div>
-								<div class="tag"><span class="tagName">Queijo</span></div>
 							</div>
 							<div id="dislikes">
 								<h2>Não gosto de:</h2>
