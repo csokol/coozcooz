@@ -37,18 +37,46 @@ class DB {
     	}
     }
     public function getFilteredRecipes($ingredients, $dislikes) {
+    	$match = array();
     	$filtered = array();
     	if (is_array($ingredients) ) {
 	    	foreach($this->recipes as $recipe) {
-		    	foreach($recipe['ingredients'] as $ingredient) {
-					if (in_array($ingredient, $ingredients)) {
-						$filtered[] = $recipe;
-						break;
+	    		if (!DB::dislikeRecipe($recipe, $dislikes)) {
+	    			$nIng = 0;
+			    	foreach($recipe['ingredients'] as $ingredient) {
+						if (in_array($ingredient, $ingredients)) {
+							$nIng++;
+						}
 					}
-				}
+					if ($nIng) {
+						$match[] = array("n" => $nIng, "recipe" => $recipe);
+					}
+	    		}
+	    	}
+	    	
+		    function cmp($a, $b) {   
+			    if ($a['n'] == $b['n']) {
+			    	return 0;
+			    }
+			    return ($a['n'] > $b['n']) ? -1 : 1;
+			}
+			usort($match, 'cmp');
+			foreach($match as $mat) {
+				$filtered[] = $mat['recipe'];
+			}
+    	}
+    	
+    	return $filtered;
+    }
+    private function dislikeRecipe($recipe, $dislikes) {
+    	if (is_array($dislikes)) {
+	    	foreach($recipe['ingredients'] as $ingredient) {
+	    		if (in_array($ingredient, $dislikes)) {
+	    			return true;
+	    		}
 	    	}
     	}
-    	return $filtered;
+    	return false;
     }
 }
 ?>
