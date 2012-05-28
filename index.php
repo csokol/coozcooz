@@ -5,8 +5,8 @@
 	<link href='http://fonts.googleapis.com/css?family=Oleo+Script|Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
 	<link href="css/styles.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-	<script type="text/javascript" src="js/something.js"></script>
 	<script type="text/javascript" src="js/search.js"></script>
+	<script type="text/javascript" src="js/tag.js"></script>
 	<script type="text/javascript" src="js/functions.js"></script>
 	
 	<title>Cooz Cooz</title>
@@ -48,6 +48,46 @@
 							<br />
 							<br />
 							<br />
+							<div class="result">
+								<div class="resultImage">
+									<img src="http://mdemulher.abril.com.br/imagem/culinaria/interna-slideshow/receita-peito-frango-tomate.jpg" />
+								</div>
+								<div class="info">
+									<span class="resultName">Frango com tomate</span>
+									<br />
+									<div class="ingredient">Frango</div>
+									<div class="ingredient">Tomate</div>
+									<br />
+									<div class="time">10 min.</div>
+									<div class="grade">
+										<div class="starFull"></div>
+										<div class="starFull"></div>
+										<div class="starEmpty"></div>
+										<div class="starEmpty"></div>
+										<div class="starEmpty"></div>
+									</div>
+								</div>
+							</div>
+							<div class="result">
+								<div class="resultImage">
+									<img src="http://harmoniaphilosophica.files.wordpress.com/2012/04/plain-rice-p-leecher_1.jpg" />
+								</div>
+								<div class="info">
+									<span class="resultName">Arroz de forno</span>
+									<br />
+									<div class="ingredient">Arroz</div>
+									<div class="ingredient">Tomate</div>
+									<br />
+									<div class="time">30 min.</div>
+									<div class="grade">
+										<div class="starFull"></div>
+										<div class="starFull"></div>
+										<div class="starFull"></div>
+										<div class="starFull"></div>
+										<div class="starEmpty"></div>
+									</div>
+								</div>
+							</div>
 						</div>
 						<div id="ingredients">
 							<h2>Eu tenho:</h2>

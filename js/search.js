@@ -7,10 +7,6 @@ $(window).load(function() {
 		input.attr('value', "");
 		input.css('color', "#000000");
 	});
-	input.blur(function() {
-		input.attr('value', defaultMessage);
-		input.css('color', "#aaaaaa");
-	});
 	
 	$("#searchForm").submit(function(e) {
 		e.preventDefault();
