@@ -1,0 +1,16 @@
+
+body, #content, #content #photo {
+    width: 280px;
+}
+
+#content {
+	padding: 5px;
+    margin: 10px;
+	background: #ffffff;
+	border: 1px solid #aaaaaa;
+}
+
+#logo {
+    text-align: center;
+}
+
