@@ -7,6 +7,7 @@
 	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="js/something.js"></script>
 	<script type="text/javascript" src="js/search.js"></script>
+	<script type="text/javascript" src="js/functions.js"></script>
 	
 	<title>Cooz Cooz</title>
 </head>
@@ -25,15 +26,56 @@
 		</div>
 	</div>
 	<div id="content" class="roundedBorders">
-		<div id="searchWrapper">
-			<h1>Quero cozinhar ...</h1>
-			<br />
-			<div id="search" class="roundedBorders" >
-				<input type="text" id="searchInput" />
-				<button type="submit"></button>
-			</div>
-			<span class="example">Ex: "Lasanha de frango" ou "arroz, batata, tomate"</span>
-		</div>
+		<?php
+			if (isset($_GET['c'])) {
+				$c = $_GET['c'];
+			}
+			else {
+				$c = null;
+			}
+			
+			switch($c) {
+				case "search":
+					if (isset($_GET['q'])) {
+						$q = $_GET['q'];
+					}
+					else {
+						$q = null;
+					}
+					?>
+						<div id="results">
+							Resultados para <b><?php echo $q; ?></b>
+							<br />
+							<br />
+							<br />
+						</div>
+						<div id="ingredients">
+							<h2>Eu tenho:</h2>
+							<div class="tag">Frango</div>
+							<br />
+							<div class="tag">Tomate</div>
+							<br />
+							<div class="tag">Queijo</div>
+						</div>
+					<?php
+					break;
+				default:
+					?>
+						<div id="searchWrapper">
+							<h1>Quero cozinhar ...</h1>
+							<br />
+							<form id="searchForm">
+								<div id="search" class="roundedBorders" >
+									<input type="text" id="searchInput" />
+									<button type="submit"></button>
+								</div>
+							</form>
+							<span class="example">Ex: "Lasanha de frango" ou "arroz, batata, tomate"</span>
+						</div>
+					<?php
+					break;
+			}
+		?>
 	</div>
 </body>
 </html>

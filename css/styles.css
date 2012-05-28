@@ -85,14 +85,15 @@ h1, h2, h3, h4, h5, h6 {
 #controls ul li a {
 	display: block;
 	height: 100%;
-	width: 100%;
 	color: #ffffff;
 	font-weight: bold;
 	font-size: 1.2em;
 	text-decoration: none;
+	padding: 0 5px;
 }
 #controls ul li a:hover {
-	color: #ff0000;
+	color: #000000;
+	background: #ffffff;
 }
 #content {
 	width: 900px;
@@ -130,4 +131,32 @@ h1, h2, h3, h4, h5, h6 {
 }
 .example {
 	color: #aaaaaa;
+}
+#results {
+	display: inline-block;
+	width: 680px;
+	vertical-align: text-top;
+}
+#ingredients {
+	display: inline-block;
+	width: 200px;
+	vertical-align: text-top;
+	padding-left: 10px;
+	border-left: 1px solid #dddddd;
+}
+.tag {
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	padding: 3px 20px 3px 10px;
+	margin: 3px;
+	background: #E5FCFF;
+	border: 1px solid #80F2FF;
+	color: #666;
+	font-weight: bold;
+	display: inline-block;
+	position: relative;
+}
+.tag:hover {
+	background: #1AE4FF;
+	color: #ffffff;
 }
