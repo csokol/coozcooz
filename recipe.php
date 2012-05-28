@@ -49,17 +49,19 @@
         
         $recipe = $db->getRecipe($id);
             
-        echo "<h1>{$recipe['title']}</h1>";
-        echo "<div id='overviewRecipe'>";
-        echo "<div class='time'>{$recipe['time']} min</div>";
-        echo "<div class='grade'>";
+        echo "<h1>{$recipe['title']}</h1>
+              <div id='overviewRecipe'>
+                <div class='time'>{$recipe['time']} min</div>
+                <div class='grade'>";
 		for ($i = 0; $i < $recipe['rate']; $i++) {
 		    echo "<div class='starFull'></div>";
 		}
 		for ($i = 5; $i > $recipe['rate']; $i--) {
 		    echo "<div class='starEmpty'></div>";
-		}	 
-        echo "</div></div>";
+		}
+        echo "</div><br /><p>Visualizar esta receita no celular:</p>
+              <img src='images/qr_{$recipe['id']}.png' />";
+        echo "</div>";
         
         $thumbs_html = "<ul class='ei-slider-thumbs'>
                         <li class='ei-slider-element'>Current</li>";
@@ -76,6 +78,19 @@
         $thumbs_html .= "</ul>";
         echo $thumbs_html;
         echo "</div>";
+
+    ?>        
+
+
+        <div id="rightBar" style="float: right">
+			<div id="ingredients">
+				<h2>Eu tenho:</h2>
+			</div>
+			<div id="dislikes">
+				<h2>Não gosto de:</h2>
+			</div>
+		</div>
+<?php
         
         echo "<div id='recipeDetail'>
               <h4>Ingredientes</h4>
