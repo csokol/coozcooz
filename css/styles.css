@@ -29,15 +29,15 @@ h1, h2, h3, h4, h5, h6 {
 }
 #menu {
 	height: 50px;
-	width: 960px;
+	width: 100%;
+	position: fixed;
 	top: 0;
 	z-index: 999;
-    margin: auto;
 }
 #menuWrapper {
+	width: 940px;
 	height: 50px;
 	margin: 0 auto;
-    width: 100%;
 	background: rgba(0, 0, 0, 0.6);
 	border-left: 1px solid #000000;
 	border-bottom: 1px solid #000000;
@@ -45,23 +45,33 @@ h1, h2, h3, h4, h5, h6 {
 }
 #logo {
 	float: left;
-	width: 30%;
 	height: 50px;
 	line-height: 50px;
-	margin-left: 20px;
 	color: #ffffff;
 	font-size: 2em;
 	font-weight: bold;
 	font-family: 'Oleo Script', cursive;
 }
+#logo a {
+	display: block;
+	padding: 0 15px;
+	color: #ffffff;
+	font-weight: bold;
+	text-decoration: none;
+	-moz-border-radius: 0 0 0 8px;
+	-webkit-border-radius: 0 0 0 8px;
+}
+#logo a:hover {
+	background: #ffffff;
+	color: #000000;
+}
 #controls {
 	float: right;
-	width: 30%;
+	width: 600px;
 	text-align: right;
 	height: 50px;
 	line-height: 50px;
 }
-
 #controls ul {
 	list-style: none;
 }
@@ -75,75 +85,78 @@ h1, h2, h3, h4, h5, h6 {
 #controls ul li a {
 	display: block;
 	height: 100%;
-	width: 100%;
 	color: #ffffff;
 	font-weight: bold;
 	font-size: 1.2em;
 	text-decoration: none;
+	padding: 0 5px;
 }
 #controls ul li a:hover {
-	color: #ff0000;
+	color: #000000;
+	background: #ffffff;
 }
 #content {
-	width: 960px;
-	margin: 30px auto 0 auto;
+	width: 900px;
+	margin: 70px auto 0 auto;
+	padding: 20px;
 	background: #ffffff;
 	border: 1px solid #aaaaaa;
-    overflow: auto;
 }
-
-#search-bar {
-    float: left;
-    width: 30%;
-    height: 50px;
-    line-height: 50px;
-    text-align: center;
+#searchWrapper {
+	width: 300px;
+	margin: 0 auto;
+	text-align: center;
 }
-
-#search-bar input[type=text]{
-    color: grey;
-    width:320px;
-    border: 1px solid #999;
-    height: 20px;
-    margin: 10px auto auto auto;
-    padding: 5px;
+#search {
+	width: 300px;
+	border: 1px solid #aaaaaa;
+	text-align: left;
+	background: #ffffff;
 }
-#home-search {
-    text-align: center;
-    margin: 20px 0 40px 0;
+#search #searchInput {
+	width: 250px;
+	height: 20px;
+	padding: 5px;
+	border: none;
+	line-height: 20px;
+	background: none;
 }
-
-#home-search input[type=text] {
-    color: grey;
-    width:375px;
-    border: 1px solid #999;
-    height: 25px;
-    -webkit-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    -moz-box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.3);
-    margin: 40px auto auto auto;
-    padding: 5px;
+#search button {
+	width: 27px;
+	height: 30px;
+	background: url('../images/search_button.png') no-repeat;
+	border: none;
+	cursor: pointer;
+	float: right;
 }
-
+.example {
+	color: #aaaaaa;
+}
 #results {
-    float:left;
-    padding: 20px;
-    width: 619px;
-    border-right: 1px solid #999;
+	display: inline-block;
+	width: 680px;
+	vertical-align: text-top;
 }
-
-#results td {
-    width: 300px;
-    height: 200px;
-}
-
 #ingredients {
-    float:right;
-    width: 260px;
-    padding: 20px;
+	display: inline-block;
+	width: 200px;
+	vertical-align: text-top;
+	padding-left: 10px;
+	border-left: 1px solid #dddddd;
 }
-
-#ingredients ul {
-    list-style-type:none;
+.tag {
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	padding: 3px 20px 3px 10px;
+	margin: 3px;
+	background: #E5FCFF;
+	border: 1px solid #80F2FF;
+	color: #666;
+	font-weight: bold;
+	display: inline-block;
+	position: relative;
 }
-
+.tag:hover {
+	background: #1AE4FF;
+	color: #ffffff;
+}
