@@ -17,6 +17,7 @@ $(document).ready(function() {
     $("#home-search").submit(function() {
         $(this).fadeOut(500);
         setTimeout(function() {showResults()}, 500);
+        return false;
     });
     
 });
