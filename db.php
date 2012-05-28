@@ -38,13 +38,15 @@ class DB {
     }
     public function getFilteredRecipes($ingredients, $dislikes) {
     	$filtered = array();
-    	foreach($this->recipes as $recipe) {
-	    	foreach($recipe['ingredients'] as $ingredient) {
-				if (in_array($ingredient, $ingredients)) {
-					$filtered[] = $recipe;
-					break;
+    	if (is_array($ingredients) ) {
+	    	foreach($this->recipes as $recipe) {
+		    	foreach($recipe['ingredients'] as $ingredient) {
+					if (in_array($ingredient, $ingredients)) {
+						$filtered[] = $recipe;
+						break;
+					}
 				}
-			}
+	    	}
     	}
     	return $filtered;
     }

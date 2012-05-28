@@ -20,10 +20,25 @@ $(window).load(function() {
 		});
 		return array;
 	}
+	function getListOfDislikes() {
+		var array = [];
+		$("#dislikes").find('.tag').each(function() {
+			var tagName = $(this).find('.tagName').html();
+			array.push(tagName);
+		});
+		return array;
+	}
+	function postRequest() {
+		var ingredients = getListOfIngredients();
+		var dislikes = getListOfDislikes();
+		window.refreshResults(ingredients, dislikes);
+	}
+	
 	$(".tag").each(function() {
 		var tag = $(this);
 		addCloseButton(tag);
 	});
+	
 	$(".ingredient").live('click', function() {
 		$(".ingredientMenu").each(function() {
 			$(this).remove();
@@ -57,12 +72,10 @@ $(window).load(function() {
 				if (!foundTag) {
 					var tag = newTag(ingredientName);
 					ingredientsDiv.append(tag);
+					postRequest();
+					menu.remove();
 				}
 			}
-			
-			var ingredientsArray = getListOfIngredients();
-			window.refreshResults(ingredientsArray);
-			menu.remove();
 		});
 		menu.find('.addDislike').click(function() {
 			var dislikeDiv = $("#dislikes");
@@ -84,8 +97,9 @@ $(window).load(function() {
 				var tag = newTag(ingredientName);
 				tag.addClass("dislike");
 				dislikeDiv.append(tag);
+				postRequest();
+				menu.remove();
 			}
-			menu.remove();
 		});
 		menu.slideDown("fast");
 	});

@@ -14,9 +14,9 @@ $(window).load(function() {
 		window.redirect("index.php?c=search&q=" + value);
 	});
 	
-	window.refreshResults = function(ingredients) {
+	window.refreshResults = function(ingredients, dislikes) {
 		$.ajaxSetup({async:false});
-		$.post("getRecipe.php", {ingredients: ingredients}, function(data) { // Do an AJAX call
+		$.post("getRecipe.php", {ingredients: ingredients, dislikes: dislikes}, function(data) { // Do an AJAX call
 			$("#results").html(data);
 		});
 	}
