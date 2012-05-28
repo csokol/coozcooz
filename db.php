@@ -18,20 +18,20 @@ class DB {
             "13" => "Margarina com sal",
             "14" => "Ovo",
             "15" => "Carne moída",
-            "16" => "Batata palha"
+            "16" => "Batata palha",
             "17" => "Molho de tomate",
             "18" => "Catchup",
-            "19" => "Queijo mussarela"
+            "19" => "Queijo mussarela",
             "20" => "Creme de leite",
             "21" => "Margarina",
             "22" => "Salsa",
-            "23" => "Queijo parmesão ralado"
+            "23" => "Queijo parmesão ralado",
             "24" => "Laranja",
             "25" => "Mostarda",
             "26" => "Pimenta",
             "27" => "Leite",
             "28" => "Amido de milho",
-            "29" => "Requeijão",
+            "29" => "Requeijão"
 		);
 		$this->ingredients = $ingredients;
 		
@@ -80,7 +80,7 @@ class DB {
 	                             "thumbUrl"=> "images/recipes/4.jpg"
 	                             );
 	                             
-	    $this->recipes = array($oil_ala_salt, $chicken_ala_cheese, $bourbon_chicken);
+	    $this->recipes = array($oil_ala_salt, $chicken_ala_cheese, $bourbon_chicken, $bolo_bat_carne, $esc_frang_qj);
 	}
 
     public function getRecipe($i) {
