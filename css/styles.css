@@ -119,6 +119,12 @@
     padding-top: 40px;
 }
 
+#recipeDetail ul li.ingredient {
+    display: block;
+    width: 100px;
+    margin: 5px;
+}
+
 ul li {
     list-style: none;
 }
