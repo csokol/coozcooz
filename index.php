@@ -32,36 +32,13 @@
 					}
 					?>
 						<div id="results">
-							Resultados para <b><?php echo $q; ?></b>
-							<br />
-							<br />
-							<br />
-							<div class="result">
-								<div class="resultImage">
-									<img src="http://mdemulher.abril.com.br/imagem/culinaria/interna-slideshow/receita-peito-frango-tomate.jpg" />
-								</div>
-								<div class="info">
-									<span class="resultName">Frango com tomate</span>
-									<br />
-									<div class="ingredient">Frango</div>
-									<div class="ingredient">Tomate</div>
-									<br />
-									<div class="time">10 min.</div>
-									<div class="grade">
-										<div class="starFull"></div>
-										<div class="starFull"></div>
-										<div class="starEmpty"></div>
-										<div class="starEmpty"></div>
-										<div class="starEmpty"></div>
-									</div>
-								</div>
-							</div>
+							<div class="ingredient">Frango</div>
+							<div class="ingredient">Tomate</div>
+							<div class="ingredient">Água</div>
 						</div>
 						<div id="rightBar">
 							<div id="ingredients">
 								<h2>Eu tenho:</h2>
-								<div class="tag"><span class="tagName">Frango</span></div>
-								<div class="tag"><span class="tagName">Tomate</span></div>
 							</div>
 							<div id="dislikes">
 								<h2>Não gosto de:</h2>

@@ -12,6 +12,10 @@ body {
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Oleo Script', cursive;
 }
+a {
+	color: #9EA8FF;
+	text-decoration: none;
+}
 /* Rounded Borders */
 .roundedBorders {
 	-moz-border-radius: 8px;
