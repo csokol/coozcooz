@@ -16,9 +16,24 @@
 	<h1 id="logo">Cooz Cooz</h1>
 	<div id="content" class="roundedBorders">
 		<h2 id="recipeName">Strogonoff de Frango</h2>
-		<img id="photo" alt="foto" src="images/recipes/chicken.jpg"/>
+		<img id="photo" alt="foto" src="images/recipes/2.jpg"/>
+		<h2>Ingredientes</h2>
+		<table id="ingredientsTable">
+			<tr>
+				<td class="quantity">1 Kg</td>
+				<td class="ingredient">Frango</td>
+			</tr>
+		</table>
+		<h2>Modo de preparo</h2>
 		<p>
-		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet dapibus ipsum. Duis sit amet congue augue. Nulla sodales metus et metus viverra vitae fermentum risus sollicitudin. Aliquam a turpis felis, id aliquet lorem. Maecenas euismod, diam ut fermentum vehicula, purus tortor sodales quam, nec scelerisque purus augue non purus. Aenean mattis vestibulum ipsum ut bibendum. Curabitur a lorem orci, in fermentum enim. Aenean justo purus, congue sed faucibus ac, pretium eu ligula. Duis sagittis semper augue, sit amet faucibus justo condimentum eget. Vestibulum laoreet magna aliquam libero dictum a ultricies lectus molestie. Integer lectus lectus, tincidunt non commodo at, mollis quis lectus.
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque sit amet dapibus ipsum.
+		Duis sit amet congue augue. Nulla sodales metus et metus viverra vitae fermentum risus
+		sollicitudin. Aliquam a turpis felis, id aliquet lorem. Maecenas euismod, diam ut fermentum
+		vehicula, purus tortor sodales quam, nec scelerisque purus augue non purus. Aenean mattis
+		vestibulum ipsum ut bibendum. Curabitur a lorem orci, in fermentum enim. Aenean justo purus,
+		congue sed faucibus ac, pretium eu ligula. Duis sagittis semper augue, sit amet faucibus
+		justo condimentum eget. Vestibulum laoreet magna aliquam libero dictum a ultricies lectus
+		molestie. Integer lectus lectus, tincidunt non commodo at, mollis quis lectus.
 		</p>
 	</div>
 </body>
