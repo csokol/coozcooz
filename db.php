@@ -1,18 +1,19 @@
 <?php
 class DB {
 	function __construct () {
-		$ingredients = array();
-		$ingredients[0] = "Frango";
-		$ingredients[1] = "Água";
-		$ingredients[2] = "Óleo";
-		$ingredients[3] = "Limão";
-		$ingredients[4] = "Queijo";
-		$ingredients[5] = "Tomate";
-		$ingredients[6] = "Sal";
-		$ingredients[7] = "Açúcar";
-		$ingredients[8] = "Manteiga";
-		$ingredients[9] = "Alho";
-		$ingredients[10] = "Cebola";
+		$ingredients = array(
+			"0" => "Frango",
+			"1" => "Água",
+			"2" => "Óleo",
+			"3" => "Limão",
+			"4" => "Queijo",
+			"5" => "Tomate",
+			"6" => "Sal",
+			"7" => "Açúcar",
+			"8" => "Manteiga",
+			"9" => "Alho",
+			"10" => "Cebola"
+		);
 		$this->ingredients = $ingredients;
 		
 		$oil_ala_salt = array("id" => 0,
