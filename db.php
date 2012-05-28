@@ -1,19 +1,18 @@
 <?php
 class DB {
 	function __construct () {
-		$ingredients = array(
-			"0" => "Frango",
-			"1" => "Água",
-			"2" => "Óleo",
-			"3" => "Limão",
-			"4" => "Queijo",
-			"5" => "Tomate",
-			"6" => "Sal",
-			"7" => "Açúcar",
-			"8" => "Manteiga",
-			"9" => "Alho",
-			"10" => "Cebola"
-		);
+		$ingredients = array();
+		$ingredients[0] = "Frango";
+		$ingredients[1] = "Água";
+		$ingredients[2] = "Óleo";
+		$ingredients[3] = "Limão";
+		$ingredients[4] = "Queijo";
+		$ingredients[5] = "Tomate";
+		$ingredients[6] = "Sal";
+		$ingredients[7] = "Açúcar";
+		$ingredients[8] = "Manteiga";
+		$ingredients[9] = "Alho";
+		$ingredients[10] = "Cebola";
 		$this->ingredients = $ingredients;
 		
 		$oil_ala_salt = array("id" => 0,
@@ -61,12 +60,13 @@ class DB {
 	    	foreach($this->recipes as $recipe) {
 	    		if (!DB::dislikeRecipe($recipe, $dislikes)) {
 	    			$nIng = 0;
-			    	foreach($recipe['ingredients'] as $ingredientId) {
-						if (in_array($this->ingredients[$ingredientId], $ingredients)) {
-							$nIng++;
-						}
-					}
-					if ($nIng) {
+	    			foreach($ingredients as $ingredient) {
+	    				$ingredientId = array_search($ingredient, $this->ingredients);
+	    				if (in_array($ingredientId, $recipe['ingredients'])) {
+	    					$nIng++;
+	    				}
+	    			}
+					if ($nIng > 0) {
 						$match[] = array("n" => $nIng, "recipe" => $recipe);
 					}
 	    		}

@@ -40,7 +40,7 @@
 					$ingredients = array();
 					foreach($q as $word) {
 						foreach($db->ingredients as $ingredient) {
-							if (strtolower($word) == strtolower($ingredient)) {
+							if (strcmp(strtolower($word), strtolower($ingredient) ) == 0) {
 								$ingredients[] = $ingredient;
 							}
 						}
