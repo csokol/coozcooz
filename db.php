@@ -25,7 +25,7 @@ class DB {
 	                             "thumbUrl"=> "images/recipes/bourbon.jpg"
 	                             );
 	                             
-	    $this->recipes = array($this->oil_ala_salt, $this->chicken_ala_cheese, $this->bourbon_chicken);
+	    $this->recipes = array($oil_ala_salt, $chicken_ala_cheese, $bourbon_chicken);
 	}
 
     public function getRecipe($i) {
