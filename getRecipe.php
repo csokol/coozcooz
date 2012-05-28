@@ -21,15 +21,17 @@
 		?>
 			<div class="result">
 				<div class="resultImage">
-					<img src="<?php echo $recipe['thumbUrl']; ?>" />
+					<a href="recipe.php?id=<?php echo $recipe['id']; ?>">
+						<img src="<?php echo $recipe['thumbUrl']; ?>" />
+					</a>
 				</div>
 				<div class="info">
-					<span class="resultName"><?php echo $recipe['title']; ?></span>
+					<a href="recipe.php?id=<?php echo $recipe['id']; ?>" class="resultName"><?php echo $recipe['title']; ?></a>
 					<br />
 					<?php
-						foreach($recipe['ingredients'] as $ingredient) {
+						foreach($recipe['ingredients'] as $ingredientId) {
 							?>
-								<div class="ingredient"><?php echo $ingredient; ?></div>
+								<div class="ingredient"><?php echo $db->getIngredientName($ingredientId); ?></div>
 							<?php
 						}
 					?>

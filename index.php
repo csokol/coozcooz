@@ -3,6 +3,7 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link href='http://fonts.googleapis.com/css?family=Oleo+Script|Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
+    <link href="css/common.css" rel="stylesheet" type="text/css" />
 	<link href="css/styles.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="js/search.js"></script>
@@ -13,8 +14,11 @@
 </head>
 <body>
 	<?php include("header.php"); ?>
+	<?php include("db.php"); ?>
 	<div id="content" class="roundedBorders">
 		<?php
+			$db = new DB();
+			
 			if (isset($_GET['c'])) {
 				$c = $_GET['c'];
 			}
@@ -30,38 +34,73 @@
 					else {
 						$q = null;
 					}
+					$q = str_replace(",", "", $q);
+					$q = str_replace(";", "", $q);
+					$q = str_replace(".", "", $q);
+					$q = explode(" ", $q);
+					$ingredients = array();
+					foreach($q as $word) {
+						foreach($db->ingredients as $ingredient) {
+							if (strcmp(strtolower($word), strtolower($ingredient) ) == 0) {
+								$ingredients[] = $ingredient;
+							}
+						}
+					}
+					
 					?>
 						<div id="results">
-							Resultados para <b><?php echo $q; ?></b>
-							<br />
-							<br />
-							<br />
-							<div class="result">
-								<div class="resultImage">
-									<img src="http://mdemulher.abril.com.br/imagem/culinaria/interna-slideshow/receita-peito-frango-tomate.jpg" />
-								</div>
-								<div class="info">
-									<span class="resultName">Frango com tomate</span>
-									<br />
-									<div class="ingredient">Frango</div>
-									<div class="ingredient">Tomate</div>
-									<br />
-									<div class="time">10 min.</div>
-									<div class="grade">
-										<div class="starFull"></div>
-										<div class="starFull"></div>
-										<div class="starEmpty"></div>
-										<div class="starEmpty"></div>
-										<div class="starEmpty"></div>
+							<?php
+							$filtered = $db->getFilteredRecipes($ingredients, null);
+    
+							foreach($filtered as $recipe) {
+								?>
+									<div class="result">
+										<div class="resultImage">
+											<a href="recipe.php?id=<?php echo $recipe['id']; ?>">
+												<img src="<?php echo $recipe['thumbUrl']; ?>" />
+											</a>
+										</div>
+										<div class="info">
+											<a href="recipe.php?id=<?php echo $recipe['id']; ?>" class="resultName"><?php echo $recipe['title']; ?></a>
+											<br />
+											<?php
+												foreach($recipe['ingredients'] as $ingredientId) {
+													?>
+														<div class="ingredient"><?php echo $db->getIngredientName($ingredientId); ?></div>
+													<?php
+												}
+											?>
+											<br />
+											<div class="time"><?php echo $recipe['time']; ?> min</div>
+											<div class="grade">
+												<?php
+													for($i = 0; $i < $recipe['rate']; $i++) {
+														?>
+															<div class="starFull"></div>
+														<?php
+													}
+													for($i = 5; $i > $recipe['rate']; $i--) {
+														?>
+															<div class="starEmpty"></div>
+														<?php
+													}	 
+												?>
+											</div>
+										</div>
 									</div>
-								</div>
-							</div>
+								<?php
+							}?>
 						</div>
 						<div id="rightBar">
 							<div id="ingredients">
 								<h2>Eu tenho:</h2>
-								<div class="tag"><span class="tagName">Frango</span></div>
-								<div class="tag"><span class="tagName">Tomate</span></div>
+								<?php
+									foreach ($ingredients as $ingredient) {
+										?>
+											<div class="tag"><?php echo $ingredient; ?></div>
+										<?php
+									} 
+								?>
 							</div>
 							<div id="dislikes">
 								<h2>Não gosto de:</h2>
