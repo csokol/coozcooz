@@ -59,8 +59,9 @@
 		for ($i = 5; $i > $recipe['rate']; $i--) {
 		    echo "<div class='starEmpty'></div>";
 		}
+        $img_src = $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/mobile.php?id=1&size=100x100";
         echo "</div><br /><p>Visualizar esta receita no celular:</p>
-              <img src='images/qr_{$recipe['id']}.png' />";
+              <img src='http://api.qrserver.com/v1/create-qr-code/?data={$img_src}' />";
         echo "</div>";
         
         $thumbs_html = "<ul class='ei-slider-thumbs'>
