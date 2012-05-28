@@ -29,9 +29,9 @@
 					<a href="recipe.php?id=<?php echo $recipe['id']; ?>" class="resultName"><?php echo $recipe['title']; ?></a>
 					<br />
 					<?php
-						foreach($recipe['ingredients'] as $ingredient) {
+						foreach($recipe['ingredients'] as $ingredientId) {
 							?>
-								<div class="ingredient"><?php echo $ingredient; ?></div>
+								<div class="ingredient"><?php echo $db->getIngredientName($ingredientId); ?></div>
 							<?php
 						}
 					?>

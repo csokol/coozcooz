@@ -88,13 +88,21 @@ class DB {
     }
     private function dislikeRecipe($recipe, $dislikes) {
     	if (is_array($dislikes)) {
-	    	foreach($recipe['ingredients'] as $ingredient) {
-	    		if (in_array($ingredient, $dislikes)) {
+	    	foreach($recipe['ingredients'] as $ingredientId) {
+	    		if (in_array($this->ingredients[$ingredientId], $dislikes)) {
 	    			return true;
 	    		}
 	    	}
     	}
     	return false;
+    }
+    public function getIngredientName($id) {
+    	if (isset($this->ingredients[$id])) {
+    		return $this->ingredients[$id];
+    	}
+    	else {
+    		return null;
+    	}
     }
 }
 ?>
