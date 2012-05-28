@@ -194,7 +194,7 @@ h1, h2, h3, h4, h5, h6 {
 	background: url('../images/star_empty.png');
 	display: inline-block;
 }
-#ingredients {
+#rightBar {
 	display: inline-block;
 	width: 200px;
 	vertical-align: text-top;
@@ -229,6 +229,13 @@ h1, h2, h3, h4, h5, h6 {
 }
 .tag .closeTag:hover {
 	background: #005A66;
+}
+.dislike {
+	background: #FFE5E5;
+	border: 1px solid #FF8080;
+}
+.dislike:hover {
+	background: #FF1A1A;
 }
 .ingredientMenu {
 	background: #ffffff;

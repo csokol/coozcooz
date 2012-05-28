@@ -89,13 +89,16 @@
 								</div>
 							</div>
 						</div>
-						<div id="ingredients">
-							<h2>Eu tenho:</h2>
-							<div class="tag">Frango</div>
-							<br />
-							<div class="tag">Tomate</div>
-							<br />
-							<div class="tag">Queijo</div>
+						<div id="rightBar">
+							<div id="ingredients">
+								<h2>Eu tenho:</h2>
+								<div class="tag"><span class="tagName">Frango</span></div>
+								<div class="tag"><span class="tagName">Tomate</span></div>
+								<div class="tag"><span class="tagName">Queijo</span></div>
+							</div>
+							<div id="dislikes">
+								<h2>Não gosto de:</h2>
+							</div>
 						</div>
 					<?php
 					break;
