@@ -12,19 +12,7 @@
 	<title>Cooz Cooz</title>
 </head>
 <body>
-	<div id="menu">
-		<div id="menuWrapper" class="roundedBordersBottom">
-			<div id="logo">
-				<a href="index.php">Cooz Cooz</a>
-			</div>
-			<div id="controls">
-				<ul>
-					<li><a href="#">Criar conta</a></li>
-					<li><a href="#">Entrar</a></li>
-				</ul>
-			</div>
-		</div>
-	</div>
+	<?php include("header.php"); ?>
 	<div id="content" class="roundedBorders">
 		<?php
 			if (isset($_GET['c'])) {
