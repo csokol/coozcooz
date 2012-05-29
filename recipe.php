@@ -92,8 +92,8 @@
         echo "<div id='recipeDetail'>
               <h4>Ingredientes</h4>
                 <ul>";
-        foreach ($recipe['ingredients'] as $ingredient_id) {
-            echo "<li class='ingredient'>{$db->ingredients[$ingredient_id]}</li>";
+        foreach ($recipe['ingredients'] as $key => $ingredient_id) {
+            echo "<li class='ingredient'>{$db->ingredients[$ingredient_id]}</li> ({$recipe['quantities'][$key]})";
         }
         echo "</ul>";
         echo "<h4>Modo de Preparo</h4>
