@@ -14,7 +14,7 @@
     else {
     	$dislikes = null;
     }
-    
+
     $filtered = $db->getFilteredRecipes($ingredients, $dislikes);
     
 	foreach($filtered as $recipe) {
@@ -22,7 +22,7 @@
 			<div class="result">
 				<div class="resultImage">
 					<a href="recipe.php?id=<?php echo $recipe['id']; ?>">
-						<img src="<?php echo $recipe['thumbUrl']; ?>" />
+						<img src="images/recipes/<?php echo $recipe['thumbUrl']; ?>" />
 					</a>
 				</div>
 				<div class="info">
