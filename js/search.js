@@ -1,115 +1,17 @@
 $(window).load(function() {
-     function addIngredient(ingredientName, menu) {
-        var ingredientsDiv = $("#ingredients");
-        if (ingredientsDiv) {
-            var foundTag = false;
-            $("#dislikes").find(".tag").each(function() {
-                var tagName = $(this).find('.tagName').html();
-                if (tagName == ingredientName) {
-                    $(this).remove();
-                }
-            });
-            ingredientsDiv.find(".tag").each(function() {
-                var tagName = $(this).find('.tagName').html();
-                if (tagName == ingredientName) {
-                    foundTag = true;
-                }
-            });
-            if (!foundTag) {
-                var tag = newTag(ingredientName);
-                ingredientsDiv.append(tag);
-                postRequest();
-                if (menu)
-                    menu.remove();
-            }
-        }
-    };
-    function addDislike(ingredientName, menu) {
-        var dislikeDiv = $("#dislikes");
-        var foundTag = false;
-        $("#ingredients").find(".tag").each(function() {
-            var tagName = $(this).find('.tagName').html();
-            if (tagName == ingredientName) {
-                $(this).remove();
-            }
-        });
-        dislikeDiv.find(".tag").each(function() {
-            var tagName = $(this).find('.tagName').html();
-            if (tagName == ingredientName) {
-                foundTag = true;
-            }
-        });
-        if (!foundTag) {
-            var tag = newTag(ingredientName);
-            tag.addClass("dislike");
-            dislikeDiv.append(tag);
-            postRequest();
-            if (menu)
-                menu.remove();
-        }
-    };
-	function addCloseButton(tag) {
-		tag.append("<span class='closeTag'>X</span>");
-		tag.find('.closeTag').click(function() {
-			tag.remove();
-			var ingredientsArray = getListOfIngredients();
-			window.refreshResults(ingredientsArray);
-		});
-	}
-	function newTag(name) {
-		var tag = $("<div class='tag'>" + "<span class='tagName'>" + name + "</span>" + "</div>");
-		addCloseButton(tag);
-		return tag;
-	}
-	function getListOfIngredients() {
-		var array = [];
-		$("#ingredients").find('.tag').each(function() {
-			var tagName = $(this).find('.tagName').html();
-			array.push(tagName);
-		});
-		return array;
-	}
-	function getListOfDislikes() {
-		var array = [];
-		$("#dislikes").find('.tag').each(function() {
-			var tagName = $(this).find('.tagName').html();
-			array.push(tagName);
-		});
-		return array;
-	}
 	function postRequest() {
 		var ingredients = getListOfIngredients();
 		var dislikes = getListOfDislikes();
 		window.refreshResults(ingredients, dislikes);
 	}
 	
-	$(".tag").each(function() {
-		var tag = $(this);
-		addCloseButton(tag);
-	});
+	window.refreshResults = function(ingredients, dislikes) {
+		$.ajaxSetup({async:false});
+		$.post("getRecipe.php", {ingredients: ingredients, dislikes: dislikes}, function(data) { // Do an AJAX call
+			$("#main").html(data);
+		});
+	}
 	
-	$(".ingredient").live('click', function() {
-		$(".ingredientMenu").each(function() {
-			$(this).remove();
-		})
-		var ingredientName = $(this).html();
-		var menu = $("<div class='ingredientMenu'>" + 
-				"<span class='menuButton addIngredient roundedBordersTop'>Eu tenho</span>" + 
-				"<span class='menuButton addDislike roundedBordersBottom'>Não gosto</span>"
-				+ "</div>");
-		$("body").append(menu);
-		var position = $(this).position();
-		var height = $(this).height();
-		menu.css('left', position.left);
-		menu.css('top', parseInt(position.top + height));
-		menu.find('.addIngredient').click(function() {
-			addIngredient(ingredientName, menu);
-		});
-		menu.find('.addDislike').click(function() {
-            addDislike(ingredientName, menu);
-		});
-		menu.slideDown("fast");
-	});
 	
 	var defaultMessage = "Nome de receita ou ingredientes";
 	var input = $("#searchInput");
@@ -143,27 +45,24 @@ $(window).load(function() {
 		}, "json");
 	});
 	
-	window.refreshResults = function(ingredients, dislikes) {
-		$.ajaxSetup({async:false});
-		$.post("getRecipe.php", {ingredients: ingredients, dislikes: dislikes}, function(data) { // Do an AJAX call
-			$("#results").html(data);
-		});
-	}
-	
 	$.get("getAllIngredients.php", function(ingredients) {
         $("#alsoHave input").autocomplete({
             source: ingredients,
             select: function(event, ui) {
                 addIngredient(ui.item.value);
-                $("#alsoHave input").val("");
             },
+            close: function() {
+            	$("#alsoHave input").val("Também tenho...");
+            }
         });
         $("#alsoDislike input").autocomplete({
             source: ingredients,
             select: function(event, ui) {
                 addDislike(ui.item.value);
-                $("#alsoDislike input").val("");
             },
+            close: function() {
+            	$("#alsoDislike input").val("Também não gosto...");
+            }
         });
     }, "json");
     

@@ -71,11 +71,11 @@ ul, ol {
 .tag .closeTag:hover {
 	background: #005A66;
 }
-.dislike {
+#dislikes .tag {
 	background: #FFE5E5;
 	border: 1px solid #FF8080;
 }
-.dislike:hover {
+#dislikes .tag:hover {
 	background: #FF1A1A;
 }
 .ingredientMenu {

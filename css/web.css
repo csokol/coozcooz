@@ -139,7 +139,7 @@ ul li {
 .example {
 	color: #aaaaaa;
 }
-#results {
+#main {
 	display: inline-block;
 	width: 680px;
 	vertical-align: text-top;
@@ -201,7 +201,7 @@ ul li {
 	background: url('../images/star_empty.png');
 	display: inline-block;
 }
-#rightBar {
+#ingredientsBar {
 	display: inline-block;
 	width: 200px;
 	vertical-align: text-top;
