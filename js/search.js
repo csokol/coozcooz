@@ -44,7 +44,8 @@ $(window).load(function() {
             tag.addClass("dislike");
             dislikeDiv.append(tag);
             postRequest();
-            menu.remove();
+            if (menu)
+                menu.remove();
         }
     };
 	function addCloseButton(tag) {
@@ -155,14 +156,24 @@ $(window).load(function() {
 		});
 	}
 	
-    $("#alsoHave input").autocomplete({
-        source: ["Frango", "cenoura", "alho"],
-        select: function() {
-            console.log("select: "+$(this).val())
-            addIngredient($(this).val());
-        },
-    });
+	$.get("getAllIngredients.php", function(ingredients) {
+        $("#alsoHave input").autocomplete({
+            source: ingredients,
+            select: function(event, ui) {
+                addIngredient(ui.item.value);
+                $("#alsoHave input").val("");
+            },
+        });
+        $("#alsoDislike input").autocomplete({
+            source: ingredients,
+            select: function(event, ui) {
+                addDislike(ui.item.value);
+                $("#alsoDislike input").val("");
+            },
+        });
+    }, "json");
+    
     $("#alsoHave input").keyup(function() {
-    });
+    })
     
 });
