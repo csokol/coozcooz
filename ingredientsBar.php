@@ -1,13 +1,6 @@
 <div id="ingredientsBar">
 	<div id="ingredients">
 		<h2>Eu tenho:</h2>
-		<?php
-			foreach ($ingredients as $ingredient) {
-				?>
-					<div class="tag"><?php echo $ingredient; ?></div>
-				<?php
-			} 
-		?>
 	</div>
 	<div id="alsoHave">
 		<h3>Eu também tenho...</h3>

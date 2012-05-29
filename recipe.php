@@ -51,14 +51,7 @@
 
     ?>        
 
-        <div id="rightBar" class="detailRecipe">
-			<div id="ingredients">
-				<h2>Eu tenho:</h2>
-			</div>
-			<div id="dislikes">
-				<h2>Não gosto de:</h2>
-			</div>
-		</div>
+<?php include_once("ingredientsBar.php"); ?>
 <?php
         /* Ingredients list and directions */        
         echo "<div id='recipeDetail'>

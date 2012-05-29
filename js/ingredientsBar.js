@@ -1,6 +1,11 @@
-function Manager(divName, title, text) {
-	return {
+function Manager(divName, initialTags) {
+	obj = {
 		div: $("#" + divName),
+		setCookie: function() {
+			var currentTags = this.getTags();
+	        var cookie = currentTags.join(";");
+	        $.cookie(divName, cookie);
+		},
 		add: function(name) {
 			var foundTag = false;
 			this.div.find(".tag").each(function() {
@@ -11,16 +16,21 @@ function Manager(divName, title, text) {
 		    });
 			if (!foundTag) {
 				var tag = $("<div class='tag'>" + "<span class='tagName'>" + name + "</span><span class='closeTag'>X</span></div>");
+				
+				var me = this;
 				tag.find('.closeTag').click(function() {
-					tag.remove();
+					me.remove(name);
 					if (window.refreshResults) {
 			        	window.refreshResults();
 			        }
 				});
+				
 		        this.div.append(tag);
 		        if (window.refreshResults) {
 		        	window.refreshResults();
 		        }
+		        
+		        this.setCookie();
 		    }
 		},
 		remove: function(name) {
@@ -31,6 +41,7 @@ function Manager(divName, title, text) {
 		            if (window.refreshResults) {
 			        	window.refreshResults();
 			        }
+		            this.setCookie();
 		        }
 			});
 		},
@@ -42,12 +53,20 @@ function Manager(divName, title, text) {
 			});
 			return array;
 		}
-	};
+	}
+	
+	$.each(initialTags, function(index, ingredient) {
+		obj.add(ingredient);
+	});
+	return obj;
 }
 
 $(document).ready(function() {
-	var ingredients = Manager("ingredients", "Eu tenho", "Eu também tenho...");
-	var dislikes = Manager("dislikes", "Não gosto", "Eu também não gosto...");
+	var initialIngredients = $.cookie("ingredients").split(';');
+	var initialDislikes = $.cookie("dislikes").split(';');
+	
+	var ingredients = Manager("ingredients", initialIngredients);
+	var dislikes = Manager("dislikes", initialDislikes);
 	
 	$(".ingredient").live('click', function() {
 		var ingredientName = $(this).html();
