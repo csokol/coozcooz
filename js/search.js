@@ -1,16 +1,78 @@
-$(window).load(function() {
-	function postRequest() {
-		var ingredients = getListOfIngredients();
-		var dislikes = getListOfDislikes();
-		window.refreshResults(ingredients, dislikes);
+function Manager(divName, initialTags) {
+	obj = {
+		div: $("#" + divName),
+		setCookie: function() {
+			var currentTags = this.getTags();
+	        var cookie = currentTags.join(";");
+	        $.cookie(divName, cookie);
+		},
+		add: function(name) {
+			var foundTag = false;
+			this.div.find(".tag").each(function() {
+		        var tagName = $(this).find('.tagName').html();
+		        if (tagName == name) {
+		            foundTag = true;
+		        }
+		    });
+			if (!foundTag) {
+				var tag = $("<div class='tag'>" + "<span class='tagName'>" + name + "</span><span class='closeTag'>X</span></div>");
+				
+				var me = this;
+				tag.find('.closeTag').click(function() {
+					me.remove(name);
+					if (window.refreshResults) {
+			        	window.refreshResults();
+			        }
+				});
+				
+		        this.div.append(tag);
+		        if (window.refreshResults) {
+		        	window.refreshResults();
+		        }
+		        
+		        this.setCookie();
+		    }
+		},
+		remove: function(name) {
+			var me = this; 
+			this.div.find(".tag").each(function() {
+				var tagName = $(this).find('.tagName').html();
+		        if (tagName == name) {
+		            $(this).remove();
+		            if (window.refreshResults) {
+			        	window.refreshResults();
+			        }
+		            me.setCookie();
+		        }
+			});
+		},
+		getTags: function() {
+			var array = [];
+			this.div.find('.tag').each(function() {
+				var tagName = $(this).find('.tagName').html();
+				array.push(tagName);
+			});
+			return array;
+		}
 	}
 	
+	if (initialTags) {
+		$.each(initialTags, function(index, ingredient) {
+			obj.add(ingredient);
+		});
+	}
+	return obj;
+}
+
+$(window).load(function() {
 	window.refreshResults = function() {
-		alert("REFRESHED RESULTS");
-		/*$.ajaxSetup({async:false});
+		$.ajaxSetup({async:false});
+		var ingredients = window.ingredients.getTags();
+		var dislikes = window.dislikes.getTags();
+	
 		$.post("getRecipe.php", {ingredients: ingredients, dislikes: dislikes}, function(data) { // Do an AJAX call
 			$("#main").html(data);
-		});*/
+		});
 	}
 	
 	

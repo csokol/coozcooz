@@ -76,8 +76,8 @@ $(document).ready(function() {
 	if (cookie_dis) {
 		initialDislikes = cookie_dis.split(';');
 	}
-	var ingredients = Manager("ingredients", initialIngredients);
-	var dislikes = Manager("dislikes", initialDislikes);
+	window.ingredients = Manager("ingredients", initialIngredients);
+	window.dislikes = Manager("dislikes", initialDislikes);
 	
 	$(".ingredient").live('click', function() {
 		var ingredientName = $(this).html();
@@ -96,15 +96,14 @@ $(document).ready(function() {
 		menu.css('top', parseInt(position.top + height));
 		menu.find('.addIngredient').click(function() {
 			menu.remove();
-			ingredients.add(ingredientName);
-			dislikes.remove(ingredientName);
+			window.ingredients.add(ingredientName);
+			window.dislikes.remove(ingredientName);
 		});
 		menu.find('.addDislike').click(function() {
 			menu.remove();
-            dislikes.add(ingredientName);
-            ingredients.remove(ingredientName);
+			window.dislikes.add(ingredientName);
+			window.ingredients.remove(ingredientName);
 		});
 		menu.slideDown("fast");
 	});
-	
 });
