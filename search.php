@@ -34,6 +34,8 @@ else {
 }
 
 $ingredients = parseIngredients($q, $db);
+$cookie = join(";", $ingredients);
+setcookie("ingredients", $cookie);
 
 ?>
 
