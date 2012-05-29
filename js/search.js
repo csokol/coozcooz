@@ -1,4 +1,29 @@
 $(window).load(function() {
+     function addIngredient(ingredientName, menu) {
+        var ingredientsDiv = $("#ingredients");
+        if (ingredientsDiv) {
+            var foundTag = false;
+            $("#dislikes").find(".tag").each(function() {
+                var tagName = $(this).find('.tagName').html();
+                if (tagName == ingredientName) {
+                    $(this).remove();
+                }
+            });
+            ingredientsDiv.find(".tag").each(function() {
+                var tagName = $(this).find('.tagName').html();
+                if (tagName == ingredientName) {
+                    foundTag = true;
+                }
+            });
+            if (!foundTag) {
+                var tag = newTag(ingredientName);
+                ingredientsDiv.append(tag);
+                postRequest();
+                if (menu)
+                    menu.remove();
+            }
+        }
+    };
 	function addCloseButton(tag) {
 		tag.append("<span class='closeTag'>X</span>");
 		tag.find('.closeTag').click(function() {
@@ -54,28 +79,7 @@ $(window).load(function() {
 		menu.css('left', position.left);
 		menu.css('top', parseInt(position.top + height));
 		menu.find('.addIngredient').click(function() {
-			var ingredientsDiv = $("#ingredients");
-			if (ingredientsDiv) {
-				var foundTag = false;
-				$("#dislikes").find(".tag").each(function() {
-					var tagName = $(this).find('.tagName').html();
-					if (tagName == ingredientName) {
-						$(this).remove();
-					}
-				});
-				ingredientsDiv.find(".tag").each(function() {
-					var tagName = $(this).find('.tagName').html();
-					if (tagName == ingredientName) {
-						foundTag = true;
-					}
-				});
-				if (!foundTag) {
-					var tag = newTag(ingredientName);
-					ingredientsDiv.append(tag);
-					postRequest();
-					menu.remove();
-				}
-			}
+			addIngredient(ingredientName, menu);
 		});
 		menu.find('.addDislike').click(function() {
 			var dislikeDiv = $("#dislikes");
@@ -148,4 +152,20 @@ $(window).load(function() {
 			$("#results").html(data);
 		});
 	}
+	
+    $("#ingredients [name=alsoHave]").autocomplete({
+        source: ["frango", "cenoura", "alho"],
+        select: function() {
+            console.log("select: "+$(this).val())
+            addIngredient($(this).val());
+        },
+    });
+    $("#ingredients [name=alsoHave]").keyup(function() {
+    });
+    
+    $("#dislikes [name=alsoDislike]").autocomplete({
+        source: ["frango", "cenoura", "frangulis"]
+    });
+    $("#dislikes [name=alsoDislike]").keyup(function() {
+    });
 });

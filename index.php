@@ -5,9 +5,10 @@
 	<link href='http://fonts.googleapis.com/css?family=Oleo+Script|Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
     <link href="css/common.css" rel="stylesheet" type="text/css" />
 	<link href="css/styles.css" rel="stylesheet" type="text/css" />
+	<link href="css/jquery-ui/jquery-ui-1.8.20.custom.css" rel="stylesheet" type="text/css" />
 	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
 	<script type="text/javascript" src="js/search.js"></script>
-	<script type="text/javascript" src="js/functions.js"></script>
+	<script type="text/javascript" src="js/jquery-ui/jquery-ui-1.8.20.custom.js"></script>
 	
 	<title>Cooz Cooz</title>
 </head>
@@ -103,9 +104,13 @@
 										<?php
 									} 
 								?>
+								<h3>Eu também tenho...</h3>
+								<input name="alsoHave" type="text"/>
 							</div>
 							<div id="dislikes">
 								<h2>Não gosto de:</h2>
+								<h3>Eu também não gosto...</h3>
+                                <input name="alsoDislike" type="text"/>
 							</div>
 						</div>
 					<?php
