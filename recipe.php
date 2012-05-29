@@ -76,10 +76,11 @@
         echo "<h4>Avaliações</h4>";
         foreach ($recipe['evaluations'] as $evaluation) {
             echo "<br />
+                  <div style='width: 180px'>
                   <a href='#' class='notImplemented'><img src='images/users/{$evaluation['photo']}' width='60' /></a>
-                  <b> {$evaluation['user']}</b><br />
-                  ". htmlGrade($evaluation['rate']) ."
-                  {$evaluation['comments']}<br />";
+                  <span style='float: right'><b> {$evaluation['user']}</b>
+                  ". htmlGrade($evaluation['rate']) ."<span></div>
+                    <p>  {$evaluation['comments']}</p>";
         }
         echo "</div>";
         
