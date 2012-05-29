@@ -104,14 +104,18 @@
 										<?php
 									} 
 								?>
-								<h3>Eu também tenho...</h3>
-								<input name="alsoHave" type="text"/>
 							</div>
+                            <div id="alsoHave">
+                                <h3>Eu também tenho...</h3>
+                                <input type="text"/>
+                            </div>
 							<div id="dislikes">
 								<h2>Não gosto de:</h2>
-								<h3>Eu também não gosto...</h3>
-                                <input name="alsoDislike" type="text"/>
 							</div>
+							<div id="alsoDislike">
+                                <h3>Eu também não gosto de...</h3>
+                                <input type="text"/>
+                            </div>
 						</div>
 					<?php
 					break;

@@ -24,6 +24,29 @@ $(window).load(function() {
             }
         }
     };
+    function addDislike(ingredientName, menu) {
+        var dislikeDiv = $("#dislikes");
+        var foundTag = false;
+        $("#ingredients").find(".tag").each(function() {
+            var tagName = $(this).find('.tagName').html();
+            if (tagName == ingredientName) {
+                $(this).remove();
+            }
+        });
+        dislikeDiv.find(".tag").each(function() {
+            var tagName = $(this).find('.tagName').html();
+            if (tagName == ingredientName) {
+                foundTag = true;
+            }
+        });
+        if (!foundTag) {
+            var tag = newTag(ingredientName);
+            tag.addClass("dislike");
+            dislikeDiv.append(tag);
+            postRequest();
+            menu.remove();
+        }
+    };
 	function addCloseButton(tag) {
 		tag.append("<span class='closeTag'>X</span>");
 		tag.find('.closeTag').click(function() {
@@ -82,28 +105,7 @@ $(window).load(function() {
 			addIngredient(ingredientName, menu);
 		});
 		menu.find('.addDislike').click(function() {
-			var dislikeDiv = $("#dislikes");
-			var foundTag = false;
-			
-			$("#ingredients").find(".tag").each(function() {
-				var tagName = $(this).find('.tagName').html();
-				if (tagName == ingredientName) {
-					$(this).remove();
-				}
-			});
-			dislikeDiv.find(".tag").each(function() {
-				var tagName = $(this).find('.tagName').html();
-				if (tagName == ingredientName) {
-					foundTag = true;
-				}
-			});
-			if (!foundTag) {
-				var tag = newTag(ingredientName);
-				tag.addClass("dislike");
-				dislikeDiv.append(tag);
-				postRequest();
-				menu.remove();
-			}
+            addDislike(ingredientName, menu);
 		});
 		menu.slideDown("fast");
 	});
@@ -153,19 +155,14 @@ $(window).load(function() {
 		});
 	}
 	
-    $("#ingredients [name=alsoHave]").autocomplete({
-        source: ["frango", "cenoura", "alho"],
+    $("#alsoHave input").autocomplete({
+        source: ["Frango", "cenoura", "alho"],
         select: function() {
             console.log("select: "+$(this).val())
             addIngredient($(this).val());
         },
     });
-    $("#ingredients [name=alsoHave]").keyup(function() {
+    $("#alsoHave input").keyup(function() {
     });
     
-    $("#dislikes [name=alsoDislike]").autocomplete({
-        source: ["frango", "cenoura", "frangulis"]
-    });
-    $("#dislikes [name=alsoDislike]").keyup(function() {
-    });
 });
