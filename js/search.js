@@ -5,11 +5,12 @@ $(window).load(function() {
 		window.refreshResults(ingredients, dislikes);
 	}
 	
-	window.refreshResults = function(ingredients, dislikes) {
-		$.ajaxSetup({async:false});
+	window.refreshResults = function() {
+		alert("REFRESHED RESULTS");
+		/*$.ajaxSetup({async:false});
 		$.post("getRecipe.php", {ingredients: ingredients, dislikes: dislikes}, function(data) { // Do an AJAX call
 			$("#main").html(data);
-		});
+		});*/
 	}
 	
 	

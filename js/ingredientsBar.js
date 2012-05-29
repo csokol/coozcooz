@@ -1,4 +1,4 @@
-function Manager(divName, title, text, onChange) {
+function Manager(divName, title, text) {
 	return {
 		div: $("#" + divName),
 		add: function(name) {
@@ -13,14 +13,14 @@ function Manager(divName, title, text, onChange) {
 				var tag = $("<div class='tag'>" + "<span class='tagName'>" + name + "</span><span class='closeTag'>X</span></div>");
 				tag.find('.closeTag').click(function() {
 					tag.remove();
-					if (onChange) {
-						onChange();
-					}
+					if (window.refreshResults) {
+			        	window.refreshResults();
+			        }
 				});
 		        this.div.append(tag);
-		        if (onChange) {
-					onChange();
-				}
+		        if (window.refreshResults) {
+		        	window.refreshResults();
+		        }
 		    }
 		},
 		remove: function(name) {
@@ -28,9 +28,9 @@ function Manager(divName, title, text, onChange) {
 				var tagName = $(this).find('.tagName').html();
 		        if (tagName == name) {
 		            $(this).remove();
-		            if (onChange) {
-						onChange();
-					}
+		            if (window.refreshResults) {
+			        	window.refreshResults();
+			        }
 		        }
 			});
 		},
@@ -46,8 +46,8 @@ function Manager(divName, title, text, onChange) {
 }
 
 $(document).ready(function() {
-	var ingredients = Manager("ingredients", "Eu tenho", "Eu também tenho...", null);
-	var dislikes = Manager("dislikes", "Não gosto", "Eu também não gosto...", null);
+	var ingredients = Manager("ingredients", "Eu tenho", "Eu também tenho...");
+	var dislikes = Manager("dislikes", "Não gosto", "Eu também não gosto...");
 	
 	$(".ingredient").live('click', function() {
 		var ingredientName = $(this).html();
