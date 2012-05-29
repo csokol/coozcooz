@@ -13,6 +13,7 @@
 	<script type="text/javascript" src="js/search.js"></script>
 	<script type="text/javascript" src="js/tag.js"></script>
 	<script type="text/javascript" src="js/functions.js"></script>
+    <script type="text/javascript" src="js/not_implemented.js"></script>
 
     <script type="text/javascript" src="js/slider/jquery.eislideshow.js"></script>
     <script type="text/javascript" src="js/slider/jquery.easing.1.3.js"></script>
@@ -26,11 +27,13 @@
             });
         });
     </script>
-	
 	<title>Cooz Cooz</title>
 </head>
 <body>
-	<?php include("header.php"); ?>
+	<?php
+        include("header.php");
+        include("goodies.php");    
+    ?>
 	<div id="content" class="roundedBorders">
     <?php
         include("db.php");
@@ -51,16 +54,10 @@
             
         echo "<h1>{$recipe['title']}</h1>
               <div id='overviewRecipe'>
-                <div class='time'>{$recipe['time']} min</div>
-                <div class='grade'>";
-		for ($i = 0; $i < $recipe['rate']; $i++) {
-		    echo "<div class='starFull'></div>";
-		}
-		for ($i = 5; $i > $recipe['rate']; $i--) {
-		    echo "<div class='starEmpty'></div>";
-		}
+                <div class='time'>{$recipe['time']} min</div>";
+        echo htmlGrade($recipe['rate']);
         $img_src = $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/mobile.php?id=1&size=100x100";
-        echo "</div><br /><p>Visualizar no celular:</p>
+        echo "<br /><p>Visualizar no celular:</p>
               <img src='http://api.qrserver.com/v1/create-qr-code/?data={$img_src}' />";
         echo "</div>";
         
@@ -82,7 +79,6 @@
 
     ?>        
 
-
         <div id="rightBar" class="detailRecipe">
 			<div id="ingredients">
 				<h2>Eu tenho:</h2>
@@ -92,7 +88,7 @@
 			</div>
 		</div>
 <?php
-        
+        /* Ingredients list and directions */        
         echo "<div id='recipeDetail'>
               <h4>Ingredientes</h4>
                 <ul>";
@@ -100,9 +96,19 @@
             echo "<li class='ingredient'>{$db->ingredients[$ingredient_id]}</li>";
         }
         echo "</ul>";
-        
         echo "<h4>Modo de Preparo</h4>
               <p>{$recipe['directions']}</p>";
+
+        /* Show evaluations */
+        echo "<br />";
+        echo "<h4>Avaliações</h4>";
+        foreach ($recipe['evaluations'] as $evaluation) {
+            echo "<br />
+                  <img src='images/users/{$evaluation['photo']}' width='60' />
+                  <b> {$evaluation['user']}</b><br />
+                  ". htmlGrade($evaluation['rate']) ."
+                  {$evaluation['comments']}<br />";
+        }
         echo "</div>";
         
     ?>
