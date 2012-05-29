@@ -120,12 +120,6 @@ $(window).load(function() {
 		input.css('color', "#000000");
 	});
 	
-	$("#searchForm").submit(function(e) {
-		e.preventDefault();
-		var value = input.attr('value');
-		window.redirect("index.php?c=search&q=" + value);
-	});
-	
 	$("#refineSearchForm").submit(function(e) {
 		e.preventDefault();
 		var value = input.attr('value');
