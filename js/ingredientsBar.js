@@ -34,6 +34,7 @@ function Manager(divName, initialTags) {
 		    }
 		},
 		remove: function(name) {
+			var me = this; 
 			this.div.find(".tag").each(function() {
 				var tagName = $(this).find('.tagName').html();
 		        if (tagName == name) {
@@ -41,7 +42,7 @@ function Manager(divName, initialTags) {
 		            if (window.refreshResults) {
 			        	window.refreshResults();
 			        }
-		            this.setCookie();
+		            me.setCookie();
 		        }
 			});
 		},
@@ -55,16 +56,26 @@ function Manager(divName, initialTags) {
 		}
 	}
 	
-	$.each(initialTags, function(index, ingredient) {
-		obj.add(ingredient);
-	});
+	if (initialTags) {
+		$.each(initialTags, function(index, ingredient) {
+			obj.add(ingredient);
+		});
+	}
 	return obj;
 }
 
 $(document).ready(function() {
-	var initialIngredients = $.cookie("ingredients").split(';');
-	var initialDislikes = $.cookie("dislikes").split(';');
+	var cookie_ing = $.cookie("ingredients");
+	var cookie_dis = $.cookie("dislikes");
+	var initialIngredients = null;
+	var initialDislikes = null;
 	
+	if (cookie_ing) {
+		initialIngredients = cookie_ing.split(';');
+	}
+	if (cookie_dis) {
+		initialDislikes = cookie_dis.split(';');
+	}
 	var ingredients = Manager("ingredients", initialIngredients);
 	var dislikes = Manager("dislikes", initialDislikes);
 	
