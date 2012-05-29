@@ -60,7 +60,7 @@
 		    echo "<div class='starEmpty'></div>";
 		}
         $img_src = $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/mobile.php?id=1&size=100x100";
-        echo "</div><br /><p>Visualizar esta receita no celular:</p>
+        echo "</div><br /><p>Visualizar no celular:</p>
               <img src='http://api.qrserver.com/v1/create-qr-code/?data={$img_src}' />";
         echo "</div>";
         
@@ -83,7 +83,7 @@
     ?>        
 
 
-        <div id="rightBar" style="float: right">
+        <div id="rightBar" class="detailRecipe">
 			<div id="ingredients">
 				<h2>Eu tenho:</h2>
 			</div>

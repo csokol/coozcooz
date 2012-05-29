@@ -78,7 +78,7 @@ class DB {
 	    						"title"=> "Escondidinho especial de frango, creme de queijo e batata palha",
 	                             "time"=> 50,
 	                             "rate"=> 5,
-	                             "ingredients" => array(0, 24, 25, 6, 26, 23, 16, 2, 11, 21, 27, 28, 29, 23, 16),
+	                             "ingredients" => array(0, 24, 25, 6, 26, 23, 16, 2, 11, 21, 27, 28, 29),
 	                             "directions"=> "Tempere as coxas com o suco de laranja, a mostarda, o sal, a pimenta, o alho e a cebola. Deixe marinar por 30 minutos. Em uma panela, aqueça o óleo e frite bem as coxas até ficarem douradas. Acrescente a marinada e deixe cozinhar até ficarem bem macias. Reserve. Purê: Cozinhe as batatas na água com sal até ficarem bem macias. Escorra e ainda quente passe no espremedor. Em uma panela, misture a batata, a margarina, o leite e o sal cozinhe por 2 minutos no fogo brando, sem parar de mexer. Reserve. Creme de queijo: Em uma panela, dissolva o amido no leite e leve ao fogo, mexendo sem parar até engrossar. Desligue o fogo, misture o requeijão e duas colheres de queijo ralado. Se necessário acrescente sal. Montagem: Desfie as coxas em pedaços grandes. Num refratário, forre o fundo e as laterais com o purê de batata, espalhe o frango e cubra com o creme de queijo. Polvilhe o queijo parmesão restante e cubra com a batata palha. Leve ao forno preaquecido a 200°C e asse durante 30 minutos.",
 	                             "thumbUrl"=> "4.jpg",
 	                             "photos" => array("4.jpg")

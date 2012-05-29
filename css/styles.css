@@ -111,12 +111,18 @@
 
 #overviewRecipe {
     float: right;
-    padding-right: 200px;
+    padding-right: 300px;
 }
 
 #recipeDetail {
     clear: both;
     padding-top: 40px;
+}
+
+#recipeDetail ul li.ingredient {
+    display: block;
+    width: 100px;
+    margin: 5px;
 }
 
 ul li {
@@ -125,6 +131,10 @@ ul li {
 
 #recipeDetail ul {
     padding-bottom: 20px;
+}
+.detailRecipe {
+    float: right;
+    margin-top: -100px;
 }
 .example {
 	color: #aaaaaa;
