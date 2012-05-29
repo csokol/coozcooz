@@ -19,8 +19,8 @@
 		?>
 		<div id="controls">
 			<ul>
-				<li><a href="#">Criar conta</a></li>
-				<li><a href="#">Entrar</a></li>
+				<li><a href="#" class="notImplemented">Criar conta</a></li>
+				<li><a href="#" class="notImplemented">Entrar</a></li>
 			</ul>
 		</div>
 	</div>
