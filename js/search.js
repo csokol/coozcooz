@@ -1,28 +1,28 @@
 $(window).load(function() {
     
      function addIngredient(ingredientName, menu) {
-         var ingredientsDiv = $("#ingredients");
-            if (ingredientsDiv) {
-                var foundTag = false;
-                $("#dislikes").find(".tag").each(function() {
-                    var tagName = $(this).find('.tagName').html();
-                    if (tagName == ingredientName) {
-                        $(this).remove();
-                    }
-                });
-                ingredientsDiv.find(".tag").each(function() {
-                    var tagName = $(this).find('.tagName').html();
-                    if (tagName == ingredientName) {
-                        foundTag = true;
-                    }
-                });
-                if (!foundTag) {
-                    var tag = newTag(ingredientName);
-                    ingredientsDiv.append(tag);
-                    postRequest();
-                    menu.remove();
+        var ingredientsDiv = $("#ingredients");
+        if (ingredientsDiv) {
+            var foundTag = false;
+            $("#dislikes").find(".tag").each(function() {
+                var tagName = $(this).find('.tagName').html();
+                if (tagName == ingredientName) {
+                    $(this).remove();
                 }
+            });
+            ingredientsDiv.find(".tag").each(function() {
+                var tagName = $(this).find('.tagName').html();
+                if (tagName == ingredientName) {
+                    foundTag = true;
+                }
+            });
+            if (!foundTag) {
+                var tag = newTag(ingredientName);
+                ingredientsDiv.append(tag);
+                postRequest();
+                menu.remove();
             }
+        }
     };
 	function addCloseButton(tag) {
 		tag.append("<span class='closeTag'>X</span>");
@@ -152,4 +152,11 @@ $(window).load(function() {
 			$("#results").html(data);
 		});
 	}
+	
+	$("#ingredients [name=alsoHave]").keyup(function() {
+        console.log($(this).val());
+        $(this).autocomplete({
+            source: ["frango", "cenoura", "frangulis"]
+        });
+    });
 });
