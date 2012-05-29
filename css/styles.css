@@ -79,11 +79,11 @@
 	padding: 20px;
 	background: #ffffff;
 	border: 1px solid #aaaaaa;
-    min-height: 550px;
+    min-height: 300px;
 }
 #searchWrapper {
 	width: 300px;
-	margin: 0 auto;
+	margin: 100px auto 0;
 	text-align: center;
 }
 #search {
