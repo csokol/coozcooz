@@ -69,7 +69,7 @@ class DB {
 	                             "directions"=> "Heat oil in a large skillet. Add chicken pieces and cook until lightly browned. Remove chicken. Add remaining ingredients, heating over medium Heat until well mixed and dissolved. Add chicken and bring to a hard boil. Reduce heat and simmer for 20 minutes. Serve over hot rice and ENJOY.",
 	                             "thumbUrl"=> "2.jpg",
                                  "photos" => array("2.jpg", "bourbon2.jpg", "bourbon3.jpg", "bourbon4.jpg","bourbon5.jpg"),
-                                 "evaluations" => array(array("user"=> "jose", "photo"=>"jose.jpg", "rate"=>5, "comments"=> "Velho esta receita é muuuuuuuito boa. Fiz ela de olhos fechados e com o pé nas costa e ainda assim ficou uma delícia."), array("user"=> "maria", "photo"=>"maria.jpg", "rate"=>1, "comments"=> "Não gostei. Parece que precisa ter habilidades especiais pra fazer esta receita."))
+                                 "evaluations" => array(array("user"=> "jose", "photo"=>"jose.jpg", "rate"=>5, "comments"=> "Velho esta receita é muuuuuuuito boa. Fiz ela estes dias e ficou uma delícia."), array("user"=> "maria", "photo"=>"maria.jpg", "rate"=>1, "comments"=> "Não gostei. Esta receita parece não ser muito gostosa."))
 	                             );
  	    $bolo_bat_carne = array("id" => 3,
  	    						"title"=> "Bolo de batata com Carne e Queijo",

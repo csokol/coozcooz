@@ -1,37 +1,9 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<link href='http://fonts.googleapis.com/css?family=Oleo+Script|Open+Sans:400italic,700italic,400,700' rel='stylesheet' type='text/css'>
-    <link rel="stylesheet" href="css/common.css" rel="stylesheet" type="text/css" />
-	<link rel="stylesheet" href="css/styles.css" rel="stylesheet" type="text/css" />
-    <link rel="stylesheet" type="text/css" href="css/slider/slider.css" />
-	<noscript>
-		<link rel="stylesheet" type="text/css" href="css/slider/noscript.css" />
-	</noscript>
-	<script type="text/javascript" src="js/jquery-1.7.2.min.js"></script>
-	<script type="text/javascript" src="js/search.js"></script>
-	<script type="text/javascript" src="js/tag.js"></script>
-	<script type="text/javascript" src="js/functions.js"></script>
-    <script type="text/javascript" src="js/not_implemented.js"></script>
-
-    <script type="text/javascript" src="js/slider/jquery.eislideshow.js"></script>
-    <script type="text/javascript" src="js/slider/jquery.easing.1.3.js"></script>
-    <script type="text/javascript">
-        $(function() {
-            $('#ei-slider').eislideshow({
-				animation			: 'center',
-				autoplay			: true,
-				slideshow_interval	: 3000,
-				titlesFactor		: 0
-            });
-        });
-    </script>
-	<title>Cooz Cooz</title>
-</head>
+<?php include('head.php'); ?>
 <body>
 	<?php
-        include("header.php");
+        include("top.php");
         include("goodies.php");    
     ?>
 	<div id="content" class="roundedBorders">
@@ -104,7 +76,7 @@
         echo "<h4>Avaliações</h4>";
         foreach ($recipe['evaluations'] as $evaluation) {
             echo "<br />
-                  <img src='images/users/{$evaluation['photo']}' width='60' />
+                  <a href='#' class='notImplemented'><img src='images/users/{$evaluation['photo']}' width='60' /></a>
                   <b> {$evaluation['user']}</b><br />
                   ". htmlGrade($evaluation['rate']) ."
                   {$evaluation['comments']}<br />";
