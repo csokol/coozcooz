@@ -111,9 +111,8 @@
 
 #overviewRecipe {
     float: right;
-    padding-right: 300px;
+    padding-right: 50px;
 }
-
 #recipeDetail {
     clear: both;
     padding-top: 40px;
@@ -123,6 +122,10 @@
     display: block;
     width: 100px;
     margin: 5px;
+}
+#recipePhoto {
+	float: left;
+	max-width: 480px;
 }
 
 ul li {
