@@ -108,7 +108,7 @@ class DB {
     public function getFilteredRecipes($ingredients, $dislikes) {
     	$match = array();
     	$filtered = array();
-    	if (is_array($ingredients) ) {
+    	if (is_array($ingredients) && count($ingredients) > 0) {
 	    	foreach($this->recipes as $recipe) {
 	    		if (!DB::dislikeRecipe($recipe, $dislikes)) {
 	    			$nIng = 0;
@@ -134,6 +134,9 @@ class DB {
 			foreach($match as $mat) {
 				$filtered[] = $mat['recipe'];
 			}
+    	}
+    	else {
+    		$filtered = $this->recipes;
     	}
     	
     	return $filtered;
