@@ -206,11 +206,13 @@ ul li {
 #backToSearch {
 	width: 200px;
 	text-align: center;
-	padding: 10px 0;
+	padding: 5px;
 	background-color: #EDEDED;
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;
 	display: inline-block;
+
+	border: 1px solid #dddddd;
 }
 #backToSearch img { vertical-align: middle; }
 #ingredientsBar {
