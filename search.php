@@ -26,16 +26,42 @@ function parseIngredients($query, $db) {
 }
 
 
-if (isset($_POST['query'])) {
-	$q = $_POST['query'];
+if (isset($_GET['q'])) {
+	$q = $_GET['q'];
 }
 else {
 	$q = null;
 }
 
-$ingredients = parseIngredients($q, $db);
-$cookie = join(";", $ingredients);
-setcookie("ingredients", $cookie);
+$ingredients = $dislikes = array();
+
+if (isset($_COOKIE['ingredients']) && $_COOKIE['ingredients']) {
+	$ingredients = explode(";", $_COOKIE['ingredients']);
+}
+if (isset($_COOKIE['dislikes']) && $_COOKIE['dislikes']) {
+	$dislikes = explode(";", $_COOKIE['dislikes']);
+}
+
+$parsedIngredients = parseIngredients($q, $db);
+$mergedIngredients = array();
+if (count($parsedIngredients) > 0) {
+	if (count($ingredients) > 0) {
+		$mergedIngredients = array_merge($parsedIngredients, $ingredients);
+	}
+	else {
+		$mergedIngredients = $parsedIngredients;
+	}
+}
+else {
+	if (count($ingredients) > 0) {
+		$mergedIngredients = $ingredients;
+	}
+}
+
+if (count($mergedIngredients) > 0) {
+	$cookie = join(";", $mergedIngredients);
+	setcookie("ingredients", $cookie);
+}
 
 ?>
 
@@ -48,8 +74,22 @@ setcookie("ingredients", $cookie);
 	
 	<div id="content" class="roundedBorders">
 		<div id="main">
+		<?php
+			echo "MERGED: ";
+			print_r($mergedIngredients);
+			echo "<br />";
+			echo "INGREDIENTS: ";
+			print_r($ingredients);
+			echo "<br />";
+			echo "DISLIKES: ";
+			print_r($dislikes);
+			
+			
+		?>
+			
+			
 			<?php
-				$filtered = $db->getFilteredRecipes($ingredients, null);
+				$filtered = $db->getFilteredRecipes($mergedIngredients, $dislikes);
 		    
 				foreach($filtered as $recipe) { ?>
 					<div class="result">

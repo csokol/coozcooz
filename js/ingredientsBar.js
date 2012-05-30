@@ -4,6 +4,8 @@ function Manager(divName, initialTags) {
 		setCookie: function() {
 			var currentTags = this.getTags();
 	        var cookie = currentTags.join(";");
+	        var date = new Date();
+	        var timeQuantum = parseInt(date.getTime()) + 3600;
 	        $.cookie(divName, cookie);
 		},
 		add: function(name) {
