@@ -3,8 +3,11 @@
 		<div id="logo">
 			<a href="index.php">Cooz Cooz</a>
 		</div>
-		<?php 
-			if ($_SERVER["SCRIPT_NAME"] != "/coozcooz/index.php") {
+		<?php
+			$file = $_SERVER["SCRIPT_NAME"];
+			$break = explode('/', $file);
+			$pfile = $break[count($break) - 1]; 
+			if ($pfile != "index.php") {
 				?>
 				<div id="refineSearch">
 					<form id="refineSearchForm">
