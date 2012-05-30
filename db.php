@@ -136,7 +136,16 @@ class DB {
 			}
     	}
     	else {
-    		$filtered = $this->recipes;
+    		if (is_array($dislikes)) {
+    			foreach($this->recipes as $recipe) {
+    				if (!DB::dislikeRecipe($recipe, $dislikes) ) {
+    					$filtered[] = $recipe;
+    				}
+    			}
+    		}
+    		else {
+	    		$filtered = $this->recipes;
+    		}
     	}
     	
     	return $filtered;

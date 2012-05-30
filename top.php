@@ -4,7 +4,7 @@
 			<a href="index.php">Cooz Cooz</a>
 		</div>
 		<?php 
-			if ($_SERVER["SCRIPT_NAME"] != "/coozcooz/index.php") {
+			if ($_SERVER["SCRIPT_NAME"] != "/coozcooz/index.php" && false) {
 				?>
 				<div id="refineSearch">
 					<form id="refineSearchForm">

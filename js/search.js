@@ -18,26 +18,17 @@ $(window).load(function() {
 		input.css('color', "#000000");
 	});
 	
-	$("#refineSearchForm").submit(function(e) {
+/*	$("#refineSearchForm").submit(function(e) {
 		e.preventDefault();
-		var value = input.attr('value');
+		var value = $(this).find('input').attr('value');
 		$.ajaxSetup({async:false});
 		$.post("getIngredients.php", {query: value}, function(data) { // Do an AJAX call
+			alert(data);
 			$.each(data, function(i, item) {
-				var tag = newTag(item);
-				var ingredientsDiv = $("#ingredients");
-				var foundTag = false;
-				ingredientsDiv.find(".tag").each(function() {
-					var tagName = $(this).find('.tagName').html();
-					if (tagName == item) {
-						foundTag = true;
-					}
-				});
-				if (!foundTag) {
-					$("#ingredients").append(tag);
-				}
+				window.ingredients.add(item);
+				window.dislikes.remove(item);
+				windiw.refreshResults();
 			});
-			postRequest();
 		}, "json");
-	});
+	});*/
 });
