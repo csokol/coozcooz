@@ -1,9 +1,7 @@
 #menu {
 	height: 50px;
 	width: 100%;
-	position: fixed;
 	top: 0;
-	z-index: 999;
 }
 #menuWrapper {
 	width: 940px;
@@ -13,7 +11,6 @@
 	border-left: 1px solid #000000;
 	border-bottom: 1px solid #000000;
 	border-right: 1px solid #000000;
-	position: relative;
 }
 #logo {
 	float: left;
@@ -75,7 +72,7 @@
 }
 #content {
 	width: 900px;
-	margin: 70px auto 0 auto;
+	margin: 10px auto;
 	padding: 20px;
 	background: #ffffff;
 	border: 1px solid #aaaaaa;
@@ -115,7 +112,7 @@
 }
 #recipeDetail {
     clear: both;
-    padding-top: 40px;
+    margin-top: 20px;
 }
 
 #recipeDetail ul li.ingredient {
@@ -205,6 +202,7 @@ ul li {
 	display: inline-block;
 }
 #ingredientsBar {
+	position: fixed;
 	display: inline-block;
 	width: 200px;
 	vertical-align: text-top;

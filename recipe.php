@@ -30,9 +30,9 @@
         <div id='overviewRecipe'>
           <div class='time'><?php echo $recipe['time']; ?> min</div>
           <?php echo htmlGrade($recipe['rate']); ?>
-          <p style="margin-top: 1em">
+          <p style="margin-top: 2em">
             Vá para o fogão!<br/>
-            Esta receita no celular:<br/>
+            Esta receita <b>no celular:</b><br/>
           <?php $img_src = $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/mobile.php?id=1&size=100x100"; ?>
           <img src='http://api.qrserver.com/v1/create-qr-code/?data=<?php echo $img_src; ?>'/>
           </p>
@@ -40,6 +40,7 @@
 
         <?php $photo = $recipe['photos'][0]; ?>
         <img id='recipePhoto' src='images/recipes/<?php echo $photo; ?>'/>
+        <div style="clear: both"></div>
 
         <?php
       //   $thumbs_html = "<ul class='ei-slider-thumbs'>
@@ -74,7 +75,9 @@
 
         /* Show evaluations */
         echo "<br />";
-        echo "<h1>Avaliações</h1>";
+        if (count($recipe['evaluations']) > 0) {
+          echo "<h1>Avaliações</h1>";
+        }
         foreach ($recipe['evaluations'] as $evaluation) {
             echo "<br />
                   <div style='width: 180px'>
