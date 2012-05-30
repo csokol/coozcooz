@@ -33,7 +33,7 @@
           <p style="margin-top: 2em">
             Vá para o fogão!<br/>
             Esta receita <b>no celular:</b><br/>
-          <?php $img_src = $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/mobile.php?id=1&size=100x100"; ?>
+          <?php $img_src = $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/mobile.php?id={$recipe['id']}&size=100x100"; ?>
           <img src='http://api.qrserver.com/v1/create-qr-code/?data=<?php echo $img_src; ?>'/>
           </p>
         </div>

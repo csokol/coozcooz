@@ -43,9 +43,9 @@
 		<h2>Ingredientes</h2>
 		<ul id="ingredients">
 			<?php
-			foreach ($recipe['ingredients'] as $ing_id) {
+			foreach ($recipe['ingredients'] as $key => $ing_id) {
 				$ingredient = $db->getIngredientName($ing_id);
-				$quantity = "1Kg"; // $recipe['quantities'][$i]
+				$quantity = $recipe['quantities'][$key];
 				$html = "
 					<li>
 						<span class='quantity'>{$quantity}</span>
