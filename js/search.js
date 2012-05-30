@@ -1,69 +1,3 @@
-function Manager(divName, initialTags) {
-	obj = {
-		div: $("#" + divName),
-		setCookie: function() {
-			var currentTags = this.getTags();
-	        var cookie = currentTags.join(";");
-	        $.cookie(divName, cookie);
-		},
-		add: function(name) {
-			var foundTag = false;
-			this.div.find(".tag").each(function() {
-		        var tagName = $(this).find('.tagName').html();
-		        if (tagName == name) {
-		            foundTag = true;
-		        }
-		    });
-			if (!foundTag) {
-				var tag = $("<div class='tag'>" + "<span class='tagName'>" + name + "</span><span class='closeTag'>X</span></div>");
-				
-				var me = this;
-				tag.find('.closeTag').click(function() {
-					me.remove(name);
-					if (window.refreshResults) {
-			        	window.refreshResults();
-			        }
-				});
-				
-		        this.div.append(tag);
-		        if (window.refreshResults) {
-		        	window.refreshResults();
-		        }
-		        
-		        this.setCookie();
-		    }
-		},
-		remove: function(name) {
-			var me = this; 
-			this.div.find(".tag").each(function() {
-				var tagName = $(this).find('.tagName').html();
-		        if (tagName == name) {
-		            $(this).remove();
-		            if (window.refreshResults) {
-			        	window.refreshResults();
-			        }
-		            me.setCookie();
-		        }
-			});
-		},
-		getTags: function() {
-			var array = [];
-			this.div.find('.tag').each(function() {
-				var tagName = $(this).find('.tagName').html();
-				array.push(tagName);
-			});
-			return array;
-		}
-	}
-	
-	if (initialTags) {
-		$.each(initialTags, function(index, ingredient) {
-			obj.add(ingredient);
-		});
-	}
-	return obj;
-}
-
 $(window).load(function() {
 	window.refreshResults = function() {
 		$.ajaxSetup({async:false});
@@ -74,7 +8,6 @@ $(window).load(function() {
 			$("#main").html(data);
 		});
 	}
-	
 	
 	var defaultMessage = "Nome de receita ou ingredientes";
 	var input = $("#searchInput");
@@ -112,7 +45,7 @@ $(window).load(function() {
         $("#alsoHave input").autocomplete({
             source: ingredients,
             select: function(event, ui) {
-                addIngredient(ui.item.value);
+            	window.ingredients.add(ui.item.value);
             },
             close: function() {
             	$("#alsoHave input").val("Também tenho...");
@@ -121,7 +54,7 @@ $(window).load(function() {
         $("#alsoDislike input").autocomplete({
             source: ingredients,
             select: function(event, ui) {
-                addDislike(ui.item.value);
+                window.dislikes.add(ui.item.value);
             },
             close: function() {
             	$("#alsoDislike input").val("Também não gosto...");
