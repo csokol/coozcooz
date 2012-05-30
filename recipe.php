@@ -24,19 +24,25 @@
         }
         
         $recipe = $db->getRecipe($id);
-            
-        echo "<h1>{$recipe['title']}</h1>
-              <div id='overviewRecipe'>
-                <div class='time'>{$recipe['time']} min</div>";
-        echo htmlGrade($recipe['rate']);
-        $img_src = $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/mobile.php?id=1&size=100x100";
-        echo "<br /><p>Visualizar no celular:</p>
-              <img src='http://api.qrserver.com/v1/create-qr-code/?data={$img_src}' />";
-        echo "</div>";
+        ?>
 
-        $photo = $recipe['photos'][0];
-        echo "<img style='float: left;' src='images/recipes/$photo'/>";
-        
+        <h1><?php echo $recipe['title']; ?></h1>
+        <div id='overviewRecipe'>
+          <div class='time'><?php echo $recipe['time']; ?> min</div>
+          <?php echo htmlGrade($recipe['rate']); ?>
+          <p style="margin-top: 2em">
+            Vá para o fogão!<br/>
+            Esta receita <b>no celular:</b><br/>
+          <?php $img_src = $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/mobile.php?id=1&size=100x100"; ?>
+          <img src='http://api.qrserver.com/v1/create-qr-code/?data=<?php echo $img_src; ?>'/>
+          </p>
+        </div>
+
+        <?php $photo = $recipe['photos'][0]; ?>
+        <img id='recipePhoto' src='images/recipes/<?php echo $photo; ?>'/>
+        <div style="clear: both"></div>
+
+        <?php
       //   $thumbs_html = "<ul class='ei-slider-thumbs'>
       //                   <li class='ei-slider-element'>Current</li>";
 
@@ -69,7 +75,9 @@
 
         /* Show evaluations */
         echo "<br />";
-        echo "<h1>Avaliações</h1>";
+        if (count($recipe['evaluations']) > 0) {
+          echo "<h1>Avaliações</h1>";
+        }
         foreach ($recipe['evaluations'] as $evaluation) {
             echo "<br />
                   <div style='width: 180px'>
