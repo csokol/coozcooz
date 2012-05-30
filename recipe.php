@@ -97,7 +97,7 @@
     ?>
     </div>
 
-    <?php include_once("ingredientsBar.php"); ?>
+    <?php $backButton = 1; include_once("ingredientsBar.php"); ?>
 
     </div>
 

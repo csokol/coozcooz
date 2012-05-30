@@ -203,6 +203,18 @@ ul li {
 	background: url('../images/star_empty.png');
 	display: inline-block;
 }
+#backToSearch {
+	width: 200px;
+	text-align: center;
+	padding: 5px;
+	background-color: #EDEDED;
+	-moz-border-radius: 8px;
+	-webkit-border-radius: 8px;
+	display: inline-block;
+
+	border: 1px solid #dddddd;
+}
+#backToSearch img { vertical-align: middle; }
 #ingredientsBar {
 	position: fixed;
 	display: inline-block;
@@ -210,6 +222,7 @@ ul li {
 	vertical-align: text-top;
 	padding-left: 10px;
 }
+
 .autoComplete {
 	color: #000000;
 	padding: 10px;
