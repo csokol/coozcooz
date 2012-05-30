@@ -4,6 +4,9 @@
 	padding: 0;
 	border-collapse: collapse;
 }
+input {
+	outline: none;
+}
 body {
 	background: url('../images/bg.png');
 	font-size: 13px;

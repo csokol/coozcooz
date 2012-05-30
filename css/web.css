@@ -87,7 +87,7 @@
 	width: 300px;
 	border: 1px solid #aaaaaa;
 	text-align: left;
-	background: #ffffff;
+	background: #f8f8f8;
 }
 #search #searchInput {
 	width: 250px;
@@ -212,4 +212,5 @@ ul li {
 	color: #000000;
 	padding: 10px;
 	border: 1px solid #dddddd;
+	background: #f8f8f8;
 }
