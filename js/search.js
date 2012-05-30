@@ -18,9 +18,10 @@ $(window).load(function() {
 		input.css('color', "#000000");
 	});
 	
-/*	$("#refineSearchForm").submit(function(e) {
+	$("#refineSearchForm").submit(function(e) {
 		e.preventDefault();
-		var value = $(this).find('input').attr('value');
+		alert("Funcionalidade não implementada");
+		/*var value = $(this).find('input').attr('value');
 		$.ajaxSetup({async:false});
 		$.post("getIngredients.php", {query: value}, function(data) { // Do an AJAX call
 			alert(data);
@@ -29,6 +30,6 @@ $(window).load(function() {
 				window.dislikes.remove(item);
 				windiw.refreshResults();
 			});
-		}, "json");
-	});*/
+		}, "json");*/
+	});
 });
