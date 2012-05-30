@@ -207,3 +207,8 @@ ul li {
 	vertical-align: text-top;
 	padding-left: 10px;
 }
+.autoComplete {
+	color: #000000;
+	padding: 10px;
+	border: 1px solid #dddddd;
+}

@@ -2,15 +2,15 @@
 	<div id="ingredients">
 		<h2>Eu tenho:</h2>
 	</div>
+	<br />
 	<div id="alsoHave">
-		<h3>Eu também tenho...</h3>
-		<input type="text"/>
+		<input type="text" class="autoComplete roundedBorders" />
 	</div>
 	<div id="dislikes">
 		<h2>Não gosto de:</h2>
 	</div>
+	<br />
 	<div id="alsoDislike">
-		<h3>Eu também não gosto de...</h3>
-		<input type="text"/>
+		<input type="text" class="autoComplete roundedBorders" />
 	</div>
 </div>
