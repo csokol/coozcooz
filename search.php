@@ -74,20 +74,6 @@ if (count($mergedIngredients) > 0) {
 	
 	<div id="content" class="roundedBorders">
 		<div id="main">
-		<?php
-			echo "MERGED: ";
-			print_r($mergedIngredients);
-			echo "<br />";
-			echo "INGREDIENTS: ";
-			print_r($ingredients);
-			echo "<br />";
-			echo "DISLIKES: ";
-			print_r($dislikes);
-			
-			
-		?>
-			
-			
 			<?php
 				$filtered = $db->getFilteredRecipes($mergedIngredients, $dislikes);
 		    
