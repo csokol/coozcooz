@@ -31,7 +31,18 @@ class DB {
             "26" => "Pimenta",
             "27" => "Leite",
             "28" => "Amido de milho",
-            "29" => "Requeijão"
+            "29" => "Requeijão",
+            "30" => "Macarrão parafuso",
+            "31" => "Milho verde",
+            "32" => "Ervilha",
+            "33" => "Óleo de soja",
+            "34" => "Creme de leite",
+            "35" => "Massa de tomate",
+            "36" => "Leite",
+            "37" => "Catupiry",
+            "38" => "Presunto",
+            "39" => "Alcatra",
+            "40" => "Farinha de rosca"
 		);
 		$this->ingredients = $ingredients;
 		
@@ -87,14 +98,59 @@ class DB {
 	                             "time"=> 50,
 	                             "rate"=> 5,
 	                             "ingredients" => array(0, 24, 25, 6, 26, 23, 16, 2, 11, 21, 27, 28, 29),
-"quantities" => array("3 colheres", "1Kg","2 mucheias", "2 poucos", "3 colheres", "1Kg","2 mucheias", "2 poucos", "3 colheres", "1Kg","2 mucheias", "2 mucheias", "2 mucheias"),
+                                 "quantities" => array("3 colheres", "1Kg","2 mucheias", "2 poucos", "3 colheres", "1Kg","2 mucheias", "2 poucos", "3 colheres", "1Kg","2 mucheias", "2 mucheias", "2 mucheias"),
 	                             "directions"=> "Tempere as coxas com o suco de laranja, a mostarda, o sal, a pimenta, o alho e a cebola. Deixe marinar por 30 minutos. Em uma panela, aqueça o óleo e frite bem as coxas até ficarem douradas. Acrescente a marinada e deixe cozinhar até ficarem bem macias. Reserve. Purê: Cozinhe as batatas na água com sal até ficarem bem macias. Escorra e ainda quente passe no espremedor. Em uma panela, misture a batata, a margarina, o leite e o sal cozinhe por 2 minutos no fogo brando, sem parar de mexer. Reserve. Creme de queijo: Em uma panela, dissolva o amido no leite e leve ao fogo, mexendo sem parar até engrossar. Desligue o fogo, misture o requeijão e duas colheres de queijo ralado. Se necessário acrescente sal. Montagem: Desfie as coxas em pedaços grandes. Num refratário, forre o fundo e as laterais com o purê de batata, espalhe o frango e cubra com o creme de queijo. Polvilhe o queijo parmesão restante e cubra com a batata palha. Leve ao forno preaquecido a 200°C e asse durante 30 minutos.",
 	                             "thumbUrl"=> "4.jpg",
 	                             "photos" => array("4.jpg"),
                                  "evaluations"=> array()
 	                             );
+  	    $mac_par = array("id" => 5,
+  	    						 "title"=> "Macarrão Parafuso ao Forno",
+  	                             "time"=> 30,
+  	                             "rate"=> 3,
+  	                             "ingredients" => array(30, 15, 31, 32, 10, 9, 17, 33, 34, 19, 6, 26),
+                                 "quantities" => array("1 pacote", "500g", "1 lata", "1 lata", "1 (picada)", "5 gomos (picados)", "2 xícaras", "8 colheres (sopa)", "1 caixa", "150g", "A gosto", "A gosto"),
+  	                             "directions"=> "Cozinhe o macarrão parafuso e reserve. Aqueça o óleo e coloque para refogar a cebola com o alho. Acrescente a carne moída e tempere com sal e pimenta. Refogue bem a carne para que fique bem soltinha. Quando a carne estiver bem cozida acrescente o molho pronto de tomate, o milho verde e a ervilha e misture bem. Misture a parafuso cozido com o molho. Cubra com o creme de leite e com o queijo mussarela e leve ao forno para derreter o queijo.",
+  	                             "thumbUrl"=> "5.jpg",
+                                 "photos" => array("5.jpg"),
+                                 "evaluations"=> array()
+  	                             );
+   	    $mac_crem = array("id" => 6,
+   	    						 "title"=> "Macarrão Cremoso ao Forno",
+   	                             "time"=> 30,
+   	                             "rate"=> 3,
+   	                             "ingredients" => array(30, 21, 10, 12, 35, 36, 37, 6, 26, 38, 23),
+                                 "quantities" => array("500g", "3 colheres (sopa)", "1 (picada)", "3 colheres (sopa)", "4 colheres (sopa)", "3 xícaras (chá)", "100g", "A gosto", "A gosto", "200g", "1 xícara (chá)"),
+   	                             "directions"=> "Aqueça a água e cozinhe o macarrão até que fique al dente. Na panela, aqueça a margarina, doure a cebola e misture a farinha de trigo. Cozinhe sem parar de mexer até dourar a farinha. Junte a massa de tomate e, aos poucos, o leite quente. Mexa sem parar até engrossar. Misture o Catupiry, o sal e a pimenta. Unte um refratário com margarina, coloque camadas de macarrão, presunto e molho. Polvilhe o queijo ralado e leve ao forno, preaquecido, a 200º C durante 15 minutos ou até dourar.",
+   	                             "thumbUrl"=> "6.jpg",
+                                 "photos" => array("6.jpg"),
+                                 "evaluations"=> array()
+   	                             );
+   	                             
+	    $pure = array("id" => 7,
+	    						 "title"=> "Purê de Batatas",
+	                             "time"=> 30,
+	                             "rate"=> 4,
+	                             "ingredients" => array(11, 36, 21, 6, 9),
+                                 "quantities" => array("1Kg", "1/2 xícara", "2 colheres (sopa)", "A gosto", "1 dente (amassado)"),
+	                             "directions"=> "Cozinhe as batatas até ficarem bem molinhas. Descasque as ainda quentes, desde que consiga manuseá-las, esprema as batatas no espremedor. Leve-as a um recepiente e acrescente a margarina, o sal e o alho, mexa até que a margarina derreta por completo. Acrescente o leite aos poucos até que se obtenha a consistência desejada.",
+	                             "thumbUrl"=> "7.jpg",
+                                 "photos" => array("7.jpg"),
+                                 "evaluations"=> array()
+	                             );
+ 	    $bife_milan = array("id" => 8,
+ 	    						 "title"=> "Bife à Milanesa",
+ 	                             "time"=> 25,
+ 	                             "rate"=> 5,
+ 	                             "ingredients" => array(39, 9, 10, 14, 23, 40),
+                                 "quantities" => array("300g (cortada em bifes)", "1 dente (amassado)", "1 colher (sobremesa); (picada)", "50g", "1 xícara (chá)"),
+ 	                             "directions"=> "Tempere os bifes com o sal, o alho e a cebola. Reserve. Numa vasilha, bata ligeiramente os ovos e acrescente uma pitada de queijo parmesão e outra de sal. Reserve. Em outro recipiente, misture o restante do queijo parmesão com a farinha de rosca. Passe os bifes nos ovos batidos e em seguida na farinha de rosca. Frite-os em óleo bem quente e escorra o excesso de gordura em papel-toalha.",
+ 	                             "thumbUrl"=> "8.jpg",
+                                 "photos" => array("8.jpg"),
+                                 "evaluations"=> array()
+ 	                             );
 	                             
-	    $this->recipes = array($oil_ala_salt, $chicken_ala_cheese, $bourbon_chicken, $bolo_bat_carne, $esc_frang_qj);
+	    $this->recipes = array($oil_ala_salt, $chicken_ala_cheese, $bourbon_chicken, $bolo_bat_carne, $esc_frang_qj, $mac_par, $mac_crem, $pure, $bife_milan);
 	}
 
     public function getRecipe($i) {
