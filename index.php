@@ -5,17 +5,19 @@
 <body>
 	<?php include("top.php"); ?>
 	
-	<div id="content" class="roundedBorders">
-		<div id="searchWrapper">
-			<h1>Quero cozinhar ...</h1>
-			<br />
-			<form id="searchForm" action="search.php" method="get">
-				<div id="search" class="roundedBorders" >
-					<input type="text" id="searchInput" name="q" />
-					<button type="submit"></button>
-				</div>
-			</form>
-			<span class="example">Ex: "Lasanha de frango" ou "arroz, batata, tomate"</span>
+	<div id="contentWrapper">
+		<div id="content" class="roundedBorders full">
+			<div id="searchWrapper">
+				<h1>Quero cozinhar ...</h1>
+				<br />
+				<form id="searchForm" action="search.php" method="get">
+					<div id="search" class="roundedBorders" >
+						<input type="text" id="searchInput" name="q" />
+						<button type="submit"></button>
+					</div>
+				</form>
+				<span class="example">Ex: "Lasanha de frango" ou "arroz, batata, tomate"</span>
+			</div>
 		</div>
 	</div>
 </body>

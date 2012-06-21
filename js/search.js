@@ -5,7 +5,7 @@ $(window).load(function() {
 		var dislikes = window.dislikes.getTags();
 	
 		$.post("getRecipe.php", {ingredients: ingredients, dislikes: dislikes}, function(data) { // Do an AJAX call
-			$("#main").html(data);
+			$("#content").html(data);
 		});
 	}
 	

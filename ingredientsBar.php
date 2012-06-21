@@ -1,15 +1,4 @@
-<?php
-if (!isset($backButton)) {
-	$backButton = false;
-}
-?>
-
-<div id="ingredientsBar">
-	<?php
-		if ($backButton) {
-			echo "<a id='backToSearch' href='search.php'><img src='images/back.png'/>Ver outras receitas</a>";
-		}
-	 ?>
+<div id="ingredientsBar" class="roundedBorders">
 	<div id="ingredients">
 		<h2>Eu tenho:</h2>
 	</div>
