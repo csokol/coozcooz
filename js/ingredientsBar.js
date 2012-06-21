@@ -143,7 +143,8 @@ $(document).ready(function() {
             },
             close: function() {
             	$(this).blur();
-            }
+            },
+            autoFocus: true
         });
         $("#alsoDislike input").autocomplete({
             source: ingredients,
@@ -154,7 +155,8 @@ $(document).ready(function() {
             },
             close: function() {
             	$(this).blur();
-            }
+            },
+            autoFocus: true
         });
     }, "json");
 });
