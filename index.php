@@ -8,7 +8,7 @@
 	<div id="contentWrapper">
 		<div id="content" class="roundedBorders full">
 			<div id="searchWrapper">
-				<h1>Quero cozinhar ...</h1>
+				<h1 class="big">Quero cozinhar ...</h1>
 				<br />
 				<form id="searchForm" action="search.php" method="get">
 					<div id="search" class="roundedBorders" >

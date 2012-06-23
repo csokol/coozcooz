@@ -9,14 +9,14 @@
 			$pfile = $break[count($break) - 1]; 
 			if ($pfile != "index.php") {
 				?>
-				<div id="refineSearch">
+				<!-- <div id="refineSearch">
 					<form id="refineSearchForm">
 						<div id="search" class="roundedBorders" >
 							<input type="text" id="searchInput" />
 							<button type="submit"></button>
 						</div>
 					</form>
-				</div>
+				</div> -->
 				<?php
 			}
 		?>

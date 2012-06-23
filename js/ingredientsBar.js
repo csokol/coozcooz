@@ -1,3 +1,9 @@
+function getIngredientName(ingredientDiv) {
+	var name = ingredientDiv.find('.ingredientName').html();
+	name = name.replace(/\s+/g, '');
+	return name;
+}
+
 function Manager(divName, initialTags) {
 	obj = {
 		div: $("#" + divName),
@@ -9,49 +15,57 @@ function Manager(divName, initialTags) {
 	        $.cookie(divName, cookie);
 		},
 		add: function(name) {
+			var manager = this;
+			
 			var foundTag = false;
-			this.div.find(".tag").each(function() {
-		        var tagName = $(this).find('.tagName').html();
+			manager.div.find(".tag").each(function() {
+				var tagName = getIngredientName($(this));
 		        if (tagName == name) {
 		            foundTag = true;
 		        }
 		    });
 			if (!foundTag) {
-				var tag = $("<div class='tag'>" + "<span class='tagName'>" + name + "</span><span class='closeTag'>X</span></div>");
+				var tag = $(
+						"<div class='tag'>" + 
+							"<div class='ingredientName'>" + name + "</div>" +
+							"<div class='showOptions'></div>" +
+						"</div>"
+				);
 				
-				var me = this;
-				tag.find('.closeTag').click(function() {
-					me.remove(name);
+				
+				
+				tag.find('.showOptions').click(function() {
+					manager.remove(name);
 					if (window.refreshResults) {
 			        	window.refreshResults();
 			        }
 				});
 				
-		        this.div.append(tag);
+		        manager.div.append(tag);
 		        if (window.refreshResults) {
 		        	window.refreshResults();
 		        }
 		        
-		        this.setCookie();
+		        manager.setCookie();
 		    }
 		},
 		remove: function(name) {
-			var me = this; 
-			this.div.find(".tag").each(function() {
-				var tagName = $(this).find('.tagName').html();
+			var manager = this; 
+			manager.div.find(".tag").each(function() {
+				var tagName = getIngredientName($(this));
 		        if (tagName == name) {
 		            $(this).remove();
 		            if (window.refreshResults) {
 			        	window.refreshResults();
 			        }
-		            me.setCookie();
+		            manager.setCookie();
 		        }
 			});
 		},
 		getTags: function() {
 			var array = [];
 			this.div.find('.tag').each(function() {
-				var tagName = $(this).find('.tagName').html();
+				var tagName = getIngredientName($(this));
 				array.push(tagName);
 			});
 			return array;
@@ -82,20 +96,23 @@ $(document).ready(function() {
 	window.dislikes = Manager("dislikes", initialDislikes);
 	
 	$(".ingredient").live('click', function() {
-		var ingredientName = $(this).html();
+		var ingredientName = getIngredientName($(this));
 		$(".ingredientMenu").each(function() {
 			$(this).remove();
 		});
 		
 		var menu = $("<div class='ingredientMenu'>" + 
 				"<span class='menuButton addIngredient roundedBordersTop'>Eu tenho</span>" + 
-				"<span class='menuButton addDislike roundedBordersBottom'>Não gosto</span>"
-				+ "</div>");
+				"<span class='menuButton addDislike'>Não gosto</span>" +
+				"<span class='menuButton closeMenu roundedBordersBottom'>Fechar</span>" +
+				"</div>");
 		$("body").append(menu);
 		var position = $(this).position();
 		var height = $(this).height();
-		menu.css('left', position.left);
-		menu.css('top', parseInt(position.top + height));
+		var width = $(this).width();
+		var menuWidth = menu.width();
+		menu.css('left', parseInt(position.left + width - menuWidth));
+		menu.css('top', parseInt(position.top + height + 5));
 		menu.find('.addIngredient').click(function() {
 			menu.remove();
 			window.ingredients.add(ingredientName);
@@ -105,6 +122,9 @@ $(document).ready(function() {
 			menu.remove();
 			window.dislikes.add(ingredientName);
 			window.ingredients.remove(ingredientName);
+		});
+		menu.find('.closeMenu').click(function() {
+			menu.remove();
 		});
 		menu.slideDown("fast");
 	});

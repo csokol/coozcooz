@@ -85,20 +85,6 @@ if (count($mergedIngredients) > 0) {
 							<a href="recipe.php?id=<?php echo $recipe['id']; ?>">
 								<img src="images/recipes/<?php echo $recipe['thumbUrl']; ?>" />
 							</a>
-						</div>
-						<div class="info">
-							<a href="recipe.php?id=<?php echo $recipe['id']; ?>" class="resultName"><?php echo $recipe['title']; ?></a>
-							<br />
-							<?php
-								$i = 0;
-								foreach($recipe['ingredients'] as $ingredientId) {
-									?>
-										<div class="ingredient"><?php echo $db->getIngredientName($ingredientId); ?></div>
-									<?php
-									$i++;
-									if ($i == 4) break;
-								}
-							?>
 							<br />
 							<div class="time"><?php echo $recipe['time']; ?> min</div>
 							<div class="grade">
@@ -115,6 +101,25 @@ if (count($mergedIngredients) > 0) {
 									}	 
 								?>
 							</div>
+						</div>
+						<div class="info">
+							<a href="recipe.php?id=<?php echo $recipe['id']; ?>" class="resultName"><?php echo $recipe['title']; ?></a>
+							<br />
+							<?php
+								$i = 0;
+								foreach($recipe['ingredients'] as $ingredientId) {
+									?>
+										<div class='ingredient'>
+					            			<div class='ingredientName'>
+						            			<?php echo $db->getIngredientName($ingredientId); ?>
+					            			</div>
+					            			<div class='showOptions'></div>
+					            		</div>
+									<?php
+									$i++;
+									if ($i == 4) break;
+								}
+							?>
 						</div>
 					</div>
 				<?php

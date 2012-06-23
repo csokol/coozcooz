@@ -44,58 +44,129 @@ ul, ol {
 #dislikes {
 	margin-top: 20px;
 }
+.showOptions {
+	height: 16px;
+	width: 16px;
+	margin-left: -3px;
+	padding-right: 5px;
+	display: inline-block;
+	vertical-align: middle;
+}
 .tag, .ingredient {
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;
-	padding: 2px 5px 2px 5px;
 	margin: 0 3px 3px 0;
-	background: #E5FCFF;
-	border: 1px solid #80F2FF;
-	color: #666;
 	font-weight: bold;
 	display: inline-block;
 	position: relative;
 	cursor: pointer;
-}
-.ingredient {
 	font-size: 0.9em;
-	padding: 3px;
+	display: inline-block;
 }
-.tag:hover, .ingredient:hover {
-	background: #1AE4FF;
+.tag .ingredientName, .ingredient .ingredientName {
+	display: inline-block;
+	vertical-align: middle;
+	padding: 3px 10px;
+}
+.tag {
+	background: #a9e4f7; /* Old browsers */
+	background: -moz-linear-gradient(top, #a9e4f7 0%, #0fb4e7 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#a9e4f7), color-stop(100%,#0fb4e7)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #a9e4f7 0%,#0fb4e7 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #a9e4f7 0%,#0fb4e7 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #a9e4f7 0%,#0fb4e7 100%); /* IE10+ */
+	background: linear-gradient(top, #a9e4f7 0%,#0fb4e7 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a9e4f7', endColorstr='#0fb4e7',GradientType=0 ); /* IE6-9 */
+	border: 1px solid #0D9DC9;
+}
+.tag .ingredientName {
+	border-right: 1px solid #0D9DC9;
 	color: #ffffff;
 }
-.tag .closeTag {
-	padding: 2px;
-	cursor: pointer;
-	display: inline-block;
-	margin-left: 5px;
+.tag:hover {
+	background: #cdeaf2; /* Old browsers */
+	background: -moz-linear-gradient(top, #cdeaf2 0%, #7ccce2 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#cdeaf2), color-stop(100%,#7ccce2)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #cdeaf2 0%,#7ccce2 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #cdeaf2 0%,#7ccce2 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #cdeaf2 0%,#7ccce2 100%); /* IE10+ */
+	background: linear-gradient(top, #cdeaf2 0%,#7ccce2 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#cdeaf2', endColorstr='#7ccce2',GradientType=0 ); /* IE6-9 */
 }
-.tag .closeTag:hover {
-	background: #005A66;
+.tag .showOptions {
+	background: url('../images/arrowDownBlue.png') center no-repeat;
+}
+.ingredient {
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top, #ffffff 0%, #f2f2f2 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f2f2f2)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ffffff 0%,#f2f2f2 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ffffff 0%,#f2f2f2 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ffffff 0%,#f2f2f2 100%); /* IE10+ */
+	background: linear-gradient(top, #ffffff 0%,#f2f2f2 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#f2f2f2',GradientType=0 ); /* IE6-9 */
+	
+	border: 1px solid #e0e0e0;
+}
+.ingredient .ingredientName {
+	border-right: 1px solid #e0e0e0;
+	color: #666;
+}
+.ingredient:hover {
+	background: #ffffff; /* Old browsers */
+	background: -moz-linear-gradient(top, #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* IE10+ */
+	background: linear-gradient(top, #ffffff 0%,#e5e5e5 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
+}
+.ingredient .showOptions {
+	background: url('../images/arrowDownGrey.png') center no-repeat;
 }
 #dislikes .tag {
-	background: #FFE5E5;
-	border: 1px solid #FF8080;
+	background: #f7bca9; /* Old browsers */
+	background: -moz-linear-gradient(top, #f7bca9 0%, #e7410f 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f7bca9), color-stop(100%,#e7410f)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #f7bca9 0%,#e7410f 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #f7bca9 0%,#e7410f 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #f7bca9 0%,#e7410f 100%); /* IE10+ */
+	background: linear-gradient(top, #f7bca9 0%,#e7410f 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f7bca9', endColorstr='#e7410f',GradientType=0 ); /* IE6-9 */
+
+	border: 1px solid #C90D0D;
+}
+#dislikes .tag .ingredientName {
+	border-right: 1px solid #C90D0D;
+}
+#dislikes .tag .showOptions {
+	background: url('../images/arrowDownRed.png') center no-repeat;
 }
 #dislikes .tag:hover {
-	background: #FF1A1A;
+	background: #f2d6ce; /* Old browsers */
+	background: -moz-linear-gradient(top, #f2d6ce 0%, #e2927c 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f2d6ce), color-stop(100%,#e2927c)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #f2d6ce 0%,#e2927c 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #f2d6ce 0%,#e2927c 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #f2d6ce 0%,#e2927c 100%); /* IE10+ */
+	background: linear-gradient(top, #f2d6ce 0%,#e2927c 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2d6ce', endColorstr='#e2927c',GradientType=0 ); /* IE6-9 */
 }
 .ingredientMenu {
 	background: #ffffff;
-	border: 1px solid #aaaaaa;
+	border: 1px solid #0D9DC9;
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;
 	display: none;
 	position: absolute;
-	margin-top: 10px;
 }
 .ingredientMenu .menuButton {
 	display: block;
-	padding: 3px;
+	padding: 3px 10px;
 	cursor: pointer;
 	margin: 0;
 }
 .ingredientMenu .menuButton:hover {
-	background: #dddddd;
+	background: #9AE3F9;
 }

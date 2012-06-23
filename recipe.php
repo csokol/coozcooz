@@ -64,15 +64,26 @@
 	
 			?>        
 
+			<div id='recipeDetail'>
+				<h1>Ingredientes</h1>
+				<ul>
+					<?php
+				        foreach ($recipe['ingredients'] as $key => $ingredient_id) {
+				        	?>
+				            	<li>
+				            		<?php echo $recipe['quantities'][$key]; ?> 
+				            		<div class='ingredient'>
+				            			<div class='ingredientName'>
+					            			<?php echo $db->ingredients[$ingredient_id]; ?>
+				            			</div>
+				            			<div class='showOptions'></div>
+				            		</div>
+								</li>
+				            <?php
+				        }
+					?>
+				</ul>
 			<?php
-		        /* Ingredients list and directions */        
-		        echo "<div id='recipeDetail'>
-		              <h1>Ingredientes</h1>
-		                <ul>";
-		        foreach ($recipe['ingredients'] as $key => $ingredient_id) {
-		            echo "<li>{$recipe['quantities'][$key]} <span class='ingredient'>{$db->ingredients[$ingredient_id]}</span></li>";
-		        }
-		        echo "</ul>";
 		        echo "<h1>Modo de Preparo</h1>
 		              <p>{$recipe['directions']}</p>";
 		

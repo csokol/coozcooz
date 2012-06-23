@@ -1,3 +1,8 @@
+h1.big {
+	font-size: 3em;
+	color: #F5C738;
+	margin-bottom: 10px;
+}
 #menu {
 	height: 50px;
 	width: 100%;
@@ -7,10 +12,19 @@
 	width: 1000px;
 	height: 50px;
 	margin: 0 auto;
-	background: rgba(0, 0, 0, 0.6);
-	border-left: 1px solid #000000;
-	border-bottom: 1px solid #000000;
-	border-right: 1px solid #000000;
+	
+	background: #f4da8b; /* Old browsers */
+	background: -moz-linear-gradient(top, #f4da8b 0%, #f5c738 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f4da8b), color-stop(100%,#f5c738)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #f4da8b 0%,#f5c738 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #f4da8b 0%,#f5c738 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #f4da8b 0%,#f5c738 100%); /* IE10+ */
+	background: linear-gradient(top, #f4da8b 0%,#f5c738 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4da8b', endColorstr='#f5c738',GradientType=0 ); /* IE6-9 */
+	
+	border-left: 1px solid #DAA60B;
+	border-bottom: 1px solid #DAA60B;
+	border-right: 1px solid #DAA60B;
 	position: relative;
 }
 #logo {
@@ -75,52 +89,51 @@
 #contentWrapper {
 	width: 1000px;
 	margin: 10px auto;
-	background: #ff0000;
-	position: relative;
 }
 #ingredientsBar {
 	position: fixed;
 	width: 188px;
 	padding: 10px;
-	border: 1px solid #ff0000;
-	background: #00ff00;
+	border: 1px solid #888;
+	background: rgba(0, 0, 0, 0.18);
 }
 #content {
 	padding: 20px;
 	background: #ffffff;
 	border: 1px solid #aaaaaa;
     min-height: 300px;
-    position: absolute;
 }
 .full {
 	width: 958px;
 	margin: 0 auto;
-	top: 0;
-    left: 0;
 }
 .medium {
 	width: 730px;
-	top: 0;
-	left: 230px;
+	margin-left: 230px;
 }
 #searchWrapper {
-	width: 300px;
+	width: 500px;
 	margin: 100px auto 0;
 	text-align: center;
 }
 #search {
-	width: 300px;
-	border: 1px solid #aaaaaa;
+	width: 400px;
+	margin: 0 auto;
+	padding: 10px;
+	border: 5px solid #efefef;
 	text-align: left;
 	background: #f8f8f8;
+	font-size: 1.2em;
 }
 #search #searchInput {
-	width: 250px;
+	width: 350px;
 	height: 20px;
 	padding: 5px;
 	border: none;
-	line-height: 20px;
+	line-height: 30px;
 	background: none;
+	font-size: 1.3em;
+	color: #000000;
 }
 #search button {
 	width: 27px;
@@ -130,7 +143,6 @@
 	cursor: pointer;
 	float: right;
 }
-
 #overviewRecipe {
     float: right;
     padding-right: 50px;
@@ -139,7 +151,6 @@
     clear: both;
     margin-top: 20px;
 }
-
 #recipeDetail ul li.ingredient {
     display: block;
     width: 100px;
@@ -153,7 +164,6 @@
 ul li {
     list-style: none;
 }
-
 #recipeDetail ul {
     padding-bottom: 20px;
 }
@@ -162,16 +172,19 @@ ul li {
     margin-top: -100px;
 }
 .example {
+	display: block;
+	margin-top: 10px;
 	color: #aaaaaa;
+	font-size: 1.1em;
 }
 .result {
 	padding: 5px;
-	width: 320px;
+	width: 330px;
 	height: 150px;
-	border: 1px solid #dddddd;
-	background: #e9e9e9;
-	margin: 0 5px 5px 0;
-	float: left;
+	border: 1px solid #F5E266;
+	background: #FCF6CF;
+	margin: 10px;
+	display: inline-block;
 }
 .result .resultImage {
 	width: 80px;
@@ -196,6 +209,7 @@ ul li {
 .result .resultName {
 	font-family: 'Oleo Script', cursive;
 	font-size: 1.5em;
+	color: #000000;
 }
 .time {
 	background: url('../images/clock.png') left top no-repeat;
