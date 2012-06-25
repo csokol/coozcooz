@@ -4,6 +4,15 @@ function getIngredientName(ingredientDiv) {
 	return name;
 }
 
+function createTag(name) {
+	return $(
+			"<div class='tag'>" + 
+				"<div class='ingredientName'>" + name + "</div>" +
+				"<div class='showOptions'></div>" +
+			"</div>"
+	);
+}
+
 function Manager(divName, initialTags) {
 	obj = {
 		div: $("#" + divName),
@@ -25,20 +34,17 @@ function Manager(divName, initialTags) {
 		        }
 		    });
 			if (!foundTag) {
-				var tag = $(
-						"<div class='tag'>" + 
-							"<div class='ingredientName'>" + name + "</div>" +
-							"<div class='showOptions'></div>" +
-						"</div>"
-				);
-				
-				
+				var tag = createTag(name);
 				
 				tag.find('.showOptions').click(function() {
-					manager.remove(name);
-					if (window.refreshResults) {
-			        	window.refreshResults();
-			        }
+					if (divName == "ingredients") {
+						var menu = getTagMenu(true);
+					}
+					else {
+						var menu = getTagMenu(false);
+					}
+					
+					positionMenu(menu, tag, name);
 				});
 				
 		        manager.div.append(tag);
@@ -80,6 +86,70 @@ function Manager(divName, initialTags) {
 	return obj;
 }
 
+function removeMenus() {
+	$(".ingredientMenu").each(function() {
+		$(this).remove();
+	});
+}
+
+function getIngredientMenu(ingredientName) {
+	var menu = $("<div class='ingredientMenu'>" + 
+			"<span class='menuButton addIngredient roundedBordersTop'>Eu tenho</span>" + 
+			"<span class='menuButton addDislike'>Não gosto</span>" +
+			"<span class='menuButton closeMenu roundedBordersBottom'>X</span>" +
+			"</div>");
+	return menu;
+}
+
+function getTagMenu(like) {
+	var menu = "<div class='ingredientMenu'>";
+	if (like) {
+		menu = menu + "<span class='menuButton addDislike roundedBordersTop'>Não gosto</span>";
+	}
+	else {
+		menu = menu + "<span class='menuButton addIngredient roundedBordersTop'>Eu tenho</span>";
+	}
+	menu = menu + "<span class='menuButton remove'>Remover</span>";
+	menu = menu + "<span class='menuButton closeMenu roundedBordersBottom'>X</span>";
+	menu = menu + "</div>";
+	menu = $(menu);
+	return menu;
+}
+
+function positionMenu(menu, tag, ingredientName) {
+	removeMenus();
+	
+	menu.find('.addIngredient').click(function() {
+		menu.remove();
+		window.ingredients.add(ingredientName);
+		window.dislikes.remove(ingredientName);
+	});
+	menu.find('.addDislike').click(function() {
+		menu.remove();
+		window.dislikes.add(ingredientName);
+		window.ingredients.remove(ingredientName);
+	});
+	menu.find('.remove').click(function() {
+		menu.remove();
+		window.ingredients.remove(ingredientName);
+		window.dislikes.remove(ingredientName);
+		tag.remove();
+	});
+	menu.find('.closeMenu').click(function() {
+		menu.remove();
+	});
+	
+	$("body").append(menu);
+	var position = tag.position();
+	var height = tag.height();
+	var width = tag.width();
+	var menuWidth = menu.width();
+	menu.css('left', parseInt(position.left + width - menuWidth));
+	menu.css('top', parseInt(position.top + height + 5));
+	
+	menu.slideDown("fast");
+}
+
 $(document).ready(function() {
 	var cookie_ing = $.cookie("ingredients");
 	var cookie_dis = $.cookie("dislikes");
@@ -97,36 +167,8 @@ $(document).ready(function() {
 	
 	$(".ingredient").live('click', function() {
 		var ingredientName = getIngredientName($(this));
-		$(".ingredientMenu").each(function() {
-			$(this).remove();
-		});
-		
-		var menu = $("<div class='ingredientMenu'>" + 
-				"<span class='menuButton addIngredient roundedBordersTop'>Eu tenho</span>" + 
-				"<span class='menuButton addDislike'>Não gosto</span>" +
-				"<span class='menuButton closeMenu roundedBordersBottom'>X</span>" +
-				"</div>");
-		$("body").append(menu);
-		var position = $(this).position();
-		var height = $(this).height();
-		var width = $(this).width();
-		var menuWidth = menu.width();
-		menu.css('left', parseInt(position.left + width - menuWidth));
-		menu.css('top', parseInt(position.top + height + 5));
-		menu.find('.addIngredient').click(function() {
-			menu.remove();
-			window.ingredients.add(ingredientName);
-			window.dislikes.remove(ingredientName);
-		});
-		menu.find('.addDislike').click(function() {
-			menu.remove();
-			window.dislikes.add(ingredientName);
-			window.ingredients.remove(ingredientName);
-		});
-		menu.find('.closeMenu').click(function() {
-			menu.remove();
-		});
-		menu.slideDown("fast");
+		var menu = getIngredientMenu();
+		positionMenu(menu, $(this), ingredientName);
 	});
 	
 	$("#alsoHave input").css('color', "#aaaaaa");

@@ -149,9 +149,38 @@ h1.big {
 	cursor: pointer;
 	float: right;
 }
-#overviewRecipe {
-    float: right;
-    padding-right: 50px;
+#mainInfo {
+	margin: -20px -20px 10px -20px;
+	padding: 20px;
+	
+	background: #fbf2d5; /* Old browsers */
+	background: -moz-linear-gradient(top, #fbf2d5 0%, #fbeab7 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#fbf2d5), color-stop(100%,#fbeab7)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #fbf2d5 0%,#fbeab7 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #fbf2d5 0%,#fbeab7 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #fbf2d5 0%,#fbeab7 100%); /* IE10+ */
+	background: linear-gradient(top, #fbf2d5 0%,#fbeab7 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fbf2d5', endColorstr='#fbeab7',GradientType=0 ); /* IE6-9 */
+	
+	border-bottom: 1px solid #aaa;
+}
+#mainInfo h1 {
+	margin-bottom: 20px;
+}
+#photo {
+	padding: 10px;
+	background: #fff;
+	border: 1px solid #d0d0d0;
+	display: inline-block;
+	vertical-align: top;
+}
+#photo img {
+	max-width: 500px;
+}
+#overview {
+	display: inline-block;
+	vertical-align: top;
+	margin-left: 20px;
 }
 #recipeDetail {
     clear: both;
@@ -163,7 +192,6 @@ h1.big {
     margin: 5px;
 }
 #recipePhoto {
-	float: left;
 	max-width: 480px;
 }
 

@@ -29,21 +29,25 @@
 	        	$recipe = $db->getRecipe($id);
 	        ?>
 
-			<h1><?php echo $recipe['title']; ?></h1>
-			<div id='overviewRecipe'>
-				<div class='time'><?php echo $recipe['time']; ?> min</div>
-				<?php echo htmlGrade($recipe['rate']); ?>
-				<p style="margin-top: 2em">
+			<div id="mainInfo" class="roundedBordersTop">
+				<h1><?php echo $recipe['title']; ?></h1>
+				
+				<div id="photo">
+					<img src='images/recipes/<?php echo $recipe['photos'][0]; ?>' />
+				</div>
+				
+				<div id="overview">
+					<div class='time'><?php echo $recipe['time']; ?> min</div>
+					<?php echo htmlGrade($recipe['rate']); ?>
+					<br />
+					<br />
 					Vá para o fogão!<br/>
-					Esta receita <b>no celular:</b><br/>
+					Veja esta receita <b>no celular:</b><br/>
 					<?php $img_src = $_SERVER['HTTP_HOST'] . dirname($_SERVER['PHP_SELF']) . "/mobile.php?id={$recipe['id']}&size=100x100"; ?>
 					<img src='http://api.qrserver.com/v1/create-qr-code/?data=<?php echo $img_src; ?>'/>
-				</p>
+				</div>
+	
 			</div>
-
-			<?php $photo = $recipe['photos'][0]; ?>
-			<img id='recipePhoto' src='images/recipes/<?php echo $photo; ?>'/>
-			<div style="clear: both"></div>
 
 	        <?php
 	      //   $thumbs_html = "<ul class='ei-slider-thumbs'>
