@@ -42,12 +42,15 @@ h1.big {
 	color: #ffffff;
 	font-weight: bold;
 	text-decoration: none;
-	-moz-border-radius: 0 0 0 8px;
-	-webkit-border-radius: 0 0 0 8px;
+	
+	text-shadow: 1px 1px 1px #888;
+	filter: dropshadow(color=#444, offx=1, offy=1);
+	letter-spacing: 2px;
 }
 #logo a:hover {
-	background: #ffffff;
-	color: #000000;
+	color: #555;
+	text-shadow: 1px 1px 1px #fff;
+	filter: dropshadow(color=#444, offx=1, offy=1);
 }
 #refineSearch {
 	position: absolute;
@@ -81,10 +84,13 @@ h1.big {
 	font-size: 1.2em;
 	text-decoration: none;
 	padding: 0 5px;
+	text-shadow: 1px 1px 1px #888;
+	filter: dropshadow(color=#444, offx=1, offy=1);
 }
 #controls ul li a:hover {
-	color: #000000;
-	background: #ffffff;
+	color: #555;
+	text-shadow: 1px 1px 1px #fff;
+	filter: dropshadow(color=#444, offx=1, offy=1);
 }
 #contentWrapper {
 	width: 1000px;
@@ -99,7 +105,7 @@ h1.big {
 }
 #content {
 	padding: 20px;
-	background: #ffffff;
+	background: #FAFAFA;
 	border: 1px solid #aaaaaa;
     min-height: 300px;
 }
@@ -209,7 +215,9 @@ ul li {
 .result .resultName {
 	font-family: 'Oleo Script', cursive;
 	font-size: 1.5em;
-	color: #000000;
+	color: #555;
+	text-shadow: 1px 1px 1px #f0f0f0;
+	filter: dropshadow(color=#f0f0f0, offx=1, offy=1);
 }
 .time {
 	background: url('../images/clock.png') left top no-repeat;

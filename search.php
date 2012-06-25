@@ -75,7 +75,7 @@ if (count($mergedIngredients) > 0) {
 	<div id="contentWrapper">
 		<?php include_once ("ingredientsBar.php"); ?>
 		
-		<div id="content" class="roundedBorders medium">
+		<div id="content" class="roundedBorders medium dropShadow">
 			<?php
 				$filtered = $db->getFilteredRecipes($mergedIngredients, $dislikes);
 		    

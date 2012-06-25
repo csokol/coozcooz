@@ -104,7 +104,7 @@ $(document).ready(function() {
 		var menu = $("<div class='ingredientMenu'>" + 
 				"<span class='menuButton addIngredient roundedBordersTop'>Eu tenho</span>" + 
 				"<span class='menuButton addDislike'>Não gosto</span>" +
-				"<span class='menuButton closeMenu roundedBordersBottom'>Fechar</span>" +
+				"<span class='menuButton closeMenu roundedBordersBottom'>X</span>" +
 				"</div>");
 		$("body").append(menu);
 		var position = $(this).position();

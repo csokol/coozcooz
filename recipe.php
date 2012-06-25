@@ -10,7 +10,7 @@
     <div id="contentWrapper">
 		<?php include_once ("ingredientsBar.php"); ?>
 		
-		<div id="content" class="roundedBorders medium">
+		<div id="content" class="roundedBorders medium dropShadow">
     		<?php
         		include("db.php");
         		if (isset($_GET['id'])) {
@@ -66,23 +66,35 @@
 
 			<div id='recipeDetail'>
 				<h1>Ingredientes</h1>
-				<ul>
-					<?php
-				        foreach ($recipe['ingredients'] as $key => $ingredient_id) {
-				        	?>
-				            	<li>
-				            		<?php echo $recipe['quantities'][$key]; ?> 
-				            		<div class='ingredient'>
-				            			<div class='ingredientName'>
-					            			<?php echo $db->ingredients[$ingredient_id]; ?>
-				            			</div>
-				            			<div class='showOptions'></div>
-				            		</div>
-								</li>
-				            <?php
-				        }
-					?>
-				</ul>
+				<table class="ingredients">
+					<thead>
+						<tr>
+							<th>Quantidade</th>
+							<th>Ingrediente</th>
+						</tr>
+					</thead>
+					<tbody>
+						<?php
+					        foreach ($recipe['ingredients'] as $key => $ingredient_id) {
+					        	?>
+					            	<tr>
+					            		<td>
+						            		<div class='ingredient'>
+						            			<div class='ingredientName'>
+							            			<?php echo $db->ingredients[$ingredient_id]; ?>
+						            			</div>
+						            			<div class='showOptions'></div>
+						            		</div>
+					            		</td> 
+					            		<td>
+					            			<?php echo $recipe['quantities'][$key]; ?>
+					            		</td>
+									</tr>
+					            <?php
+					        }
+						?>
+					</tbody>
+				</table>
 			<?php
 		        echo "<h1>Modo de Preparo</h1>
 		              <p>{$recipe['directions']}</p>";

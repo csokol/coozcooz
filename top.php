@@ -1,5 +1,5 @@
 <div id="menu">
-	<div id="menuWrapper" class="roundedBordersBottom">
+	<div id="menuWrapper" class="roundedBordersBottom dropShadow">
 		<div id="logo">
 			<a href="index.php">Cooz Cooz</a>
 		</div>

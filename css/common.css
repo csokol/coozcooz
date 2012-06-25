@@ -3,6 +3,9 @@
 	margin: 0;
 	padding: 0;
 	border-collapse: collapse;
+	text-shadow: 1px 1px 0px #fff;
+	filter: dropshadow(color=#888, offx=1, offy=1);
+	color: #333;
 }
 input {
 	outline: none;
@@ -14,6 +17,17 @@ body {
 }
 h1, h2, h3, h4, h5, h6 {
 	font-family: 'Oleo Script', cursive;
+}
+h1 {
+	color: #FFD242;
+	text-shadow: 1px 1px 1px #888;
+	filter: dropshadow(color=#888, offx=1, offy=1);
+	letter-spacing: 2px;
+}
+h2 {
+	color: #444;
+	text-shadow: 1px 1px 1px #f0f0f0;
+	filter: dropshadow(color=#f0f0f0, offx=1, offy=1);
 }
 a {
 	color: #9EA8FF;
@@ -37,6 +51,11 @@ ul, ol {
 	/* Rounded Borders */
 	-moz-border-radius: 0 0 8px 8px;
 	-webkit-border-radius: 0 0 8px 8px;
+}
+
+.dropShadow {
+	-webkit-box-shadow:  3px 3px 0px 0px #aaa;
+	box-shadow:  2px 2px 5px 0px #aaa;
 }
 
 #ingredients {
@@ -82,6 +101,8 @@ ul, ol {
 .tag .ingredientName {
 	border-right: 1px solid #0D9DC9;
 	color: #ffffff;
+	text-shadow: 0px 1px 0px #0D9DC9;
+	filter: dropshadow(color=#0D9DC9, offx=0, offy=1);
 }
 .tag:hover {
 	background: #cdeaf2; /* Old browsers */
@@ -111,6 +132,8 @@ ul, ol {
 .ingredient .ingredientName {
 	border-right: 1px solid #e0e0e0;
 	color: #666;
+	text-shadow: 0px 1px 0px #ffffff;
+	filter: dropshadow(color=#ffffff, offx=0, offy=1);
 }
 .ingredient:hover {
 	background: #ffffff; /* Old browsers */
@@ -139,6 +162,8 @@ ul, ol {
 }
 #dislikes .tag .ingredientName {
 	border-right: 1px solid #C90D0D;
+	text-shadow: 0px 1px 0px #C90D0D;
+	filter: dropshadow(color=#C90D0D, offx=0, offy=1);
 }
 #dislikes .tag .showOptions {
 	background: url('../images/arrowDownRed.png') center no-repeat;
@@ -154,19 +179,71 @@ ul, ol {
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2d6ce', endColorstr='#e2927c',GradientType=0 ); /* IE6-9 */
 }
 .ingredientMenu {
-	background: #ffffff;
-	border: 1px solid #0D9DC9;
+	background: #f1f1f1;
+	border-top: 1px solid #aaa;
+	border-right: 1px solid #aaa;
+	border-left: 1px solid #aaa;
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;
 	display: none;
 	position: absolute;
+	-webkit-box-shadow: 2px 2px 5px 0px #555;
+	box-shadow: 2px 2px 5px 0px #555;
 }
 .ingredientMenu .menuButton {
 	display: block;
 	padding: 3px 10px;
 	cursor: pointer;
 	margin: 0;
+	border-top: 1px solid #fff;
+	border-bottom: 1px solid #bbb;
+	text-align: center;
+}
+.ingredientMenu .closeMenu {
+	font-weight: bold;
 }
 .ingredientMenu .menuButton:hover {
-	background: #9AE3F9;
+	background: #f4da8b; /* Old browsers */
+	background: -moz-linear-gradient(top, #f4da8b 0%, #f5c738 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f4da8b), color-stop(100%,#f5c738)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #f4da8b 0%,#f5c738 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #f4da8b 0%,#f5c738 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #f4da8b 0%,#f5c738 100%); /* IE10+ */
+	background: linear-gradient(top, #f4da8b 0%,#f5c738 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4da8b', endColorstr='#f5c738',GradientType=0 ); /* IE6-9 */
+}
+table.ingredients {
+	border-top: 1px solid #aaa;
+	border-left: 1px solid #aaa;
+	border-collapse: collapse;
+	margin: 10px;
+}
+table.ingredients thead tr {
+	background: #f4da8b; /* Old browsers */
+	background: -moz-linear-gradient(top, #f4da8b 0%, #f5c738 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f4da8b), color-stop(100%,#f5c738)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #f4da8b 0%,#f5c738 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #f4da8b 0%,#f5c738 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #f4da8b 0%,#f5c738 100%); /* IE10+ */
+	background: linear-gradient(top, #f4da8b 0%,#f5c738 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4da8b', endColorstr='#f5c738',GradientType=0 ); /* IE6-9 */
+}
+table.ingredients thead tr th {
+	padding: 3px 5px;
+	border-right: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
+}
+table.ingredients tbody tr:nth-child(2n) {
+	background: #FCF3DA;
+}
+table.ingredients tbody tr:nth-child(2n+1) {
+	background: #F8E9B9;
+}
+table.ingredients tbody tr:hover {
+	background: #FDF9EC;
+}
+table.ingredients tbody tr td {
+	padding: 3px 5px;
+	border-right: 1px solid #aaa;
+	border-bottom: 1px solid #aaa;
 }

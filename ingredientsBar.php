@@ -1,4 +1,4 @@
-<div id="ingredientsBar" class="roundedBorders">
+<div id="ingredientsBar" class="roundedBorders dropShadow">
 	<div id="ingredients">
 		<h2>Eu tenho:</h2>
 	</div>
