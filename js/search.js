@@ -26,7 +26,7 @@ $(window).load(function() {
 		var value = $(this).find('input').attr('value');
 		$.ajaxSetup({async:false});
 		
-		$.post("/coozcooz/getIngredients.php", {query: value}, function(data) { // Do an AJAX call
+		$.post("getIngredients.php", {query: value}, function(data) { // Do an AJAX call
 			$.each(data, function(i, item) {
 				window.ingredients.add(item);
 				window.dislikes.remove(item);
