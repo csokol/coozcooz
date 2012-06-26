@@ -288,6 +288,7 @@ ul li {
 	padding: 5px 10px;
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;
+	border-radius: 8px;
 	display: inline-block;
 	
 	border: 1px solid #D5A30B;
