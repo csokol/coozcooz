@@ -49,9 +49,7 @@
 						foreach($recipe['ingredients'] as $ingredientId) {
 							?>
 								<div class='ingredient'>
-			            			<div class='ingredientName'>
-				            			<?php echo $db->getIngredientName($ingredientId); ?>
-			            			</div>
+			            			<div class='ingredientName'><?php echo $db->getIngredientName($ingredientId); ?></div>
 			            			<div class='showOptions'></div>
 			            		</div>
 							<?php

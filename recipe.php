@@ -84,9 +84,7 @@
 					            	<tr>
 					            		<td>
 						            		<div class='ingredient'>
-						            			<div class='ingredientName'>
-							            			<?php echo $db->ingredients[$ingredient_id]; ?>
-						            			</div>
+						            			<div class='ingredientName'><?php echo $db->ingredients[$ingredient_id]; ?></div>
 						            			<div class='showOptions'></div>
 						            		</div>
 					            		</td> 
@@ -126,7 +124,7 @@
 		        
 		    ?>
 		
-		    <?php $backButton = 1; include_once("ingredientsBar.php"); ?>
+			<a id='backToSearch' href='search.php'><img src='images/back.png'/>Ver outras receitas</a>
     	</div>
     </div>
 </body>

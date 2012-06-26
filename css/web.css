@@ -52,13 +52,6 @@ h1.big {
 	text-shadow: 1px 1px 1px #fff;
 	filter: dropshadow(color=#444, offx=1, offy=1);
 }
-#refineSearch {
-	position: absolute;
-	top: 10px;
-	left: 280px;
-	height: 50px;
-	width: 50px;
-}
 #controls {
 	float: right;
 	width: 600px;
@@ -119,7 +112,7 @@ h1.big {
 }
 #searchWrapper {
 	width: 500px;
-	margin: 100px auto 0;
+	margin: 100px auto 0 auto;
 	text-align: center;
 }
 #search {
@@ -148,6 +141,26 @@ h1.big {
 	border: none;
 	cursor: pointer;
 	float: right;
+}
+#refineSearch {
+	position: absolute;
+	top: 5px;
+	left: 280px;
+	height: 50px;
+	width: 50px;
+}
+#refineSearch #search {
+	height: 15px;
+	padding: 7px;
+}
+#refineSearch #search #searchInput {
+	height: 19px;
+	font-size: 1em;
+	padding: 0;
+	line-height: 19px;
+}
+#refineSearch #search button {
+	margin-top: -5px;
 }
 #mainInfo {
 	margin: -20px -20px 10px -20px;
@@ -271,17 +284,29 @@ ul li {
 	display: inline-block;
 }
 #backToSearch {
-	width: 200px;
 	text-align: center;
-	padding: 5px;
-	background-color: #EDEDED;
+	padding: 5px 10px;
 	-moz-border-radius: 8px;
 	-webkit-border-radius: 8px;
 	display: inline-block;
-
-	border: 1px solid #dddddd;
+	
+	border: 1px solid #D5A30B;
+	
+	background: #f4da8b; /* Old browsers */
+	background: -moz-linear-gradient(top, #f4da8b 0%, #f5c738 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#f4da8b), color-stop(100%,#f5c738)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top, #f4da8b 0%,#f5c738 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top, #f4da8b 0%,#f5c738 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top, #f4da8b 0%,#f5c738 100%); /* IE10+ */
+	background: linear-gradient(top, #f4da8b 0%,#f5c738 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4da8b', endColorstr='#f5c738',GradientType=0 ); /* IE6-9 */
+	
+	color: #6B5106;
+	
 }
-#backToSearch img { vertical-align: middle; }
+#backToSearch img { 
+	vertical-align: middle;
+}
 .autoComplete {
 	color: #000000;
 	padding: 10px;

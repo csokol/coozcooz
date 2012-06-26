@@ -1,6 +1,6 @@
 function getIngredientName(ingredientDiv) {
 	var name = ingredientDiv.find('.ingredientName').html();
-	name = name.replace(/\s+/g, '');
+	//name = name.replace(/\s+/g, '');
 	return name;
 }
 
@@ -139,13 +139,12 @@ function positionMenu(menu, tag, ingredientName) {
 		menu.remove();
 	});
 	
-	$("body").append(menu);
-	var position = tag.position();
+	tag.append(menu);
 	var height = tag.height();
 	var width = tag.width();
 	var menuWidth = menu.width();
-	menu.css('left', parseInt(position.left + width - menuWidth));
-	menu.css('top', parseInt(position.top + height + 5));
+	menu.css('left', parseInt(width - menuWidth));
+	menu.css('top', parseInt(height + 5));
 	
 	menu.slideDown("fast");
 }

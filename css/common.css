@@ -189,6 +189,8 @@ ul, ol {
 	position: absolute;
 	-webkit-box-shadow: 2px 2px 5px 0px #555;
 	box-shadow: 2px 2px 5px 0px #555;
+	width: 100px;
+	z-index: 999;
 }
 .ingredientMenu .menuButton {
 	display: block;

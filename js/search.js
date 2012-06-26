@@ -9,10 +9,13 @@ $(window).load(function() {
 		});
 	}
 	
-	var defaultMessage = "Nome de receita ou ingredientes";
+	function resetInput(input) {
+		input.attr('value', "Nome de receita ou ingredientes");
+		input.css('color', "#aaaaaa");
+	}
+	
 	var input = $("#searchInput");
-	input.attr('value', defaultMessage);
-	input.css('color', "#aaaaaa");
+	resetInput(input);
 	input.focus(function() {
 		input.attr('value', "");
 		input.css('color', "#000000");
@@ -20,16 +23,17 @@ $(window).load(function() {
 	
 	$("#refineSearchForm").submit(function(e) {
 		e.preventDefault();
-		alert("Funcionalidade não implementada");
-		/*var value = $(this).find('input').attr('value');
+		var value = $(this).find('input').attr('value');
 		$.ajaxSetup({async:false});
-		$.post("getIngredients.php", {query: value}, function(data) { // Do an AJAX call
-			alert(data);
+		
+		$.post("/coozcooz/getIngredients.php", {query: value}, function(data) { // Do an AJAX call
 			$.each(data, function(i, item) {
 				window.ingredients.add(item);
 				window.dislikes.remove(item);
-				windiw.refreshResults();
+				window.refreshResults();
+				resetInput(input);
+				input.blur();
 			});
-		}, "json");*/
+		}, "json");
 	});
 });
